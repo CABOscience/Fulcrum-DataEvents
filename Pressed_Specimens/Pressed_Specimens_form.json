@@ -1,0 +1,1662 @@
+{
+  "assignment_enabled": false,
+  "auto_assign": false,
+  "bounding_box": [
+    -34.614163,
+    -75.6644893017619,
+    46.7459017,
+    116.043429254343
+  ],
+  "created_at": "2018-04-06T18:07:03Z",
+  "description": "Pressed plant specimens to be processed as herbarium vouchers.",
+  "dictKeysDataname": {
+    "0204": "deleted",
+    "0320": "dominant_plant_species",
+    "0733": "catalog_number",
+    "0963": "plant_id",
+    "0a1f": "phenology_definitions",
+    "0d81": "approved_by",
+    "159a": "verification",
+    "1db4": "vascan_taxon",
+    "1ed3": "generic_taxon",
+    "2017": "habitat_photos",
+    "21a9": "publication",
+    "21f4": "deleted_by",
+    "24ff": "vegetation_type_definitions",
+    "2c21": "bulk_leaf_sample",
+    "30ca": "plant_photos",
+    "35c4": "site_and_plant",
+    "41b4": "submitted_by",
+    "4252": "date_deleted",
+    "42ef": "number_of_rejections",
+    "434e": "specimen_barcode",
+    "4663": "specimen",
+    "4b09": "specimen_id",
+    "4bc0": "scientific_name",
+    "4bd8": "plant_information",
+    "502a": "bryoquel_taxon",
+    "52a3": "herbarium_name",
+    "533d": "deposited_in_herbarium",
+    "68ce": "herbarium",
+    "6e9b": "date_verified",
+    "74c6": "approbation",
+    "779e": "phenology",
+    "7826": "vascan_filter_geography",
+    "7bb3": "taxon_checklist",
+    "85ea": "hidden_variables",
+    "8628": "published_by",
+    "8c3c": "collected_by",
+    "9498": "collection_event",
+    "9b52": "date_submitted",
+    "9c12": "soil_moisture_class",
+    "9e0f": "filter_site",
+    "a215": "data_quality_control",
+    "a667": "date_published",
+    "a865": "audio_remarks",
+    "b194": "verified_by",
+    "b2b8": "vegetation_type",
+    "ba51": "plant_scientific_name",
+    "bc0d": "submission",
+    "c068": "filter_site_id",
+    "c51f": "vascan_filter_growth_form",
+    "c762": "specimen_remarks",
+    "cd06": "vernacular_name_english",
+    "d1f1": "rejection",
+    "d834": "rejected_by",
+    "e108": "habitat",
+    "e1e9": "date_rejected",
+    "eb9a": "vernacular_name_french",
+    "ec8a": "date_collected",
+    "ecc0": "habitat_remarks",
+    "f679": "date_approved",
+    "fa97": "plant"
+  },
+  "elements": [
+    {
+      "data_name": "site_and_plant",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "allow_creating_records": false,
+          "allow_existing_records": true,
+          "allow_multiple_records": false,
+          "allow_updating_records": false,
+          "data_name": "filter_site",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Site within which the plant is located. Used to filter out plants located outside of the selected site.",
+          "disabled": false,
+          "form_id": "",
+          "hidden": false,
+          "key": "9e0f",
+          "label": "Filter: Site",
+          "record_conditions": null,
+          "record_conditions_type": null,
+          "record_defaults": [
+            {
+              "destination_field_key": "c068",
+              "source_field_key": "33f0"
+            }
+          ],
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "RecordLinkField",
+          "visible_conditions": [
+            {
+              "field_key": "fa97",
+              "operator": "is_empty",
+              "value": ""
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "data_name": "filter_site_id",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": true,
+          "key": "c068",
+          "label": "Filter: Site ID",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "allow_creating_records": true,
+          "allow_existing_records": true,
+          "allow_multiple_records": false,
+          "allow_updating_records": true,
+          "data_name": "plant",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The plant from which the specimen is collected from.",
+          "disabled": false,
+          "form_id": "",
+          "hidden": false,
+          "key": "fa97",
+          "label": "Plant",
+          "record_conditions": [
+            {
+              "linked_form_field_key": "0c3b",
+              "operator": "equal_to",
+              "value_field_key": "c068"
+            }
+          ],
+          "record_conditions_type": "all",
+          "record_defaults": [
+            {
+              "destination_field_key": "0963",
+              "source_field_key": "4d42"
+            },
+            {
+              "destination_field_key": "4bc0",
+              "source_field_key": "2027"
+            }
+          ],
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "0963",
+              "operator": "is_empty",
+              "value": ""
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "RecordLinkField",
+          "visible_conditions": [
+            {
+              "field_key": "2c21",
+              "operator": "is_empty",
+              "value": ""
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "allow_creating_records": true,
+          "allow_existing_records": true,
+          "allow_multiple_records": false,
+          "allow_updating_records": true,
+          "data_name": "bulk_leaf_sample",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "form_id": "",
+          "hidden": false,
+          "key": "2c21",
+          "label": "Bulk Leaf Sample",
+          "record_conditions": [
+            {
+              "linked_form_field_key": "28b1",
+              "operator": "equal_to",
+              "value_field_key": "c068"
+            }
+          ],
+          "record_conditions_type": "all",
+          "record_defaults": [
+            {
+              "destination_field_key": "8c3c",
+              "source_field_key": "4c88"
+            },
+            {
+              "destination_field_key": "ec8a",
+              "source_field_key": "558d"
+            },
+            {
+              "destination_field_key": "0963",
+              "source_field_key": "a959"
+            },
+            {
+              "destination_field_key": "4bc0",
+              "source_field_key": "5722"
+            }
+          ],
+          "required": true,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "RecordLinkField",
+          "visible_conditions": [
+            {
+              "field_key": "fa97",
+              "operator": "is_empty",
+              "value": ""
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "data_name": "plant_id",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": true,
+          "hidden": false,
+          "key": "0963",
+          "label": "Plant ID",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "35c4",
+      "label": "Site and Plant",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "plant_information",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "scientific_name",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The full scientific name, with authorship if known.",
+          "disabled": true,
+          "hidden": false,
+          "key": "4bc0",
+          "label": "Scientific Name",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "allow_other": false,
+          "classification_set_id": "",
+          "data_name": "phenology",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Plant Phenological stage, according to the Plant Phenology Ontology: https://www.frontiersin.org/articles/10.3389/fpls.2018.00517/full",
+          "disabled": false,
+          "hidden": false,
+          "key": "779e",
+          "label": "Phenology",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "ClassificationField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "phenology_definitions",
+          "default_url": "https://docs.google.com/spreadsheets/d/1TTQZdHpUgD2PWd6gpvzNL4ZkKGaUfaPBiud6KjuoZso/edit?usp=sharing",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "0a1f",
+          "label": "Phenology Definitions",
+          "required": false,
+          "required_conditions": [],
+          "required_conditions_type": null,
+          "type": "HyperlinkField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "annotations_enabled": false,
+          "data_name": "plant_photos",
+          "default_value": null,
+          "description": "Photos of the plant.",
+          "disabled": false,
+          "hidden": false,
+          "key": "30ca",
+          "label": "Plant Photos",
+          "max_length": 5,
+          "min_length": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "PhotoField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "4bd8",
+      "label": "Plant Information",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "collection_event",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "allow_other": true,
+          "choice_list_id": "",
+          "data_name": "collected_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "A list of names of people responsible for collecting the leaf sample. The primary collector, especially one who applies a personal identifier (Specimen ID or Barcode), should be listed first.",
+          "disabled": false,
+          "hidden": false,
+          "key": "8c3c",
+          "label": "Collected By",
+          "max_length": null,
+          "min_length": null,
+          "multiple": true,
+          "required": true,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "ChoiceField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_collected",
+          "default_previous_value": false,
+          "default_value": "now",
+          "description": "The date when the specimen was collected.",
+          "disabled": false,
+          "hidden": false,
+          "key": "ec8a",
+          "label": "Date Collected",
+          "required": true,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "9498",
+      "label": "Collection Event",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "specimen",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "specimen_id",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Unique field ID for the leaf sample. Defined automatically as the Unix timestamp (= number fo seconds since 1970-01-01 00:00:00UTC) - 1519142458.",
+          "disabled": true,
+          "hidden": false,
+          "key": "4b09",
+          "label": "Specimen ID",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "specimen_barcode",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "A barcode or QR code that identifies the specimen.",
+          "disabled": false,
+          "hidden": false,
+          "key": "434e",
+          "label": "Specimen Barcode",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "BarcodeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "specimen_remarks",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Comments or notes about the specimen.\n\nNot used for demographic data (e.g. abundance). Particularly useful for characters that cannot be observed on a dried, pressed specimen (e.g. plant height, bark color, flower smell).",
+          "disabled": false,
+          "hidden": false,
+          "key": "c762",
+          "label": "Specimen Remarks",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": "[^,;]+",
+          "pattern_description": "No comma ',' or semi-colon ';' due to csv",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "deposited_in_herbarium",
+          "default_previous_value": false,
+          "default_value": "no",
+          "description": "Has the specimen been deposited in a herbarium?",
+          "disabled": false,
+          "hidden": false,
+          "key": "533d",
+          "label": "Deposited in Herbarium?",
+          "negative": {
+            "label": "No",
+            "value": "no"
+          },
+          "neutral": {
+            "label": "N/A",
+            "value": "n/a"
+          },
+          "neutral_enabled": false,
+          "positive": {
+            "label": "Yes",
+            "value": "yes"
+          },
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "YesNoField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "4663",
+      "label": "Specimen",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "herbarium",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "allow_other": true,
+          "choices": [
+            {
+              "label": "Marie-Victorin Herbarium (MT)",
+              "value": "Marie-Victorin Herbarium (MT)"
+            }
+          ],
+          "data_name": "herbarium_name",
+          "default_previous_value": false,
+          "default_value": "Marie-Victorin Herbarium (MT)",
+          "description": "The name of the herbarium holding the specimen.",
+          "disabled": false,
+          "hidden": false,
+          "key": "52a3",
+          "label": "Herbarium Name",
+          "multiple": false,
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "533d",
+              "operator": "equal_to",
+              "value": "yes"
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "ChoiceField",
+          "visible_conditions": [
+            {
+              "field_key": "533d",
+              "operator": "equal_to",
+              "value": "yes"
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "data_name": "catalog_number",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "An identifier (preferably unique) for the record within the herbarium collection.",
+          "disabled": false,
+          "hidden": false,
+          "key": "0733",
+          "label": "Catalog Number",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": "[a-zA-Z0-9]+",
+          "pattern_description": "Alphanumeric Only",
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "533d",
+              "operator": "equal_to",
+              "value": "yes"
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "68ce",
+      "label": "Herbarium",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": [
+        {
+          "field_key": "533d",
+          "operator": "equal_to",
+          "value": "yes"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "habitat",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "dominant_plant_species",
+          "default_value": null,
+          "description": "List of the most abundant plant species in the habitat.",
+          "disabled": false,
+          "elements": [
+            {
+              "allow_other": false,
+              "choices": [
+                {
+                  "label": "VASCAN",
+                  "value": "VASCAN"
+                },
+                {
+                  "label": "Bryoquel",
+                  "value": "Bryoquel"
+                },
+                {
+                  "label": "Generic",
+                  "value": "Generic"
+                }
+              ],
+              "data_name": "taxon_checklist",
+              "default_previous_value": false,
+              "default_value": "VASCAN",
+              "description": "The checklist used to provide the scientific name of the taxon.",
+              "disabled": false,
+              "hidden": false,
+              "key": "7bb3",
+              "label": "Taxon Checklist",
+              "multiple": false,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "ChoiceField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "allow_other": false,
+              "choices": [
+                {
+                  "label": "Alberta",
+                  "value": "Alberta"
+                },
+                {
+                  "label": "British Columbia",
+                  "value": "British Columbia"
+                },
+                {
+                  "label": "Greenland",
+                  "value": "Greenland"
+                },
+                {
+                  "label": "Labrador",
+                  "value": "Labrador"
+                },
+                {
+                  "label": "Manitoba",
+                  "value": "Manitoba"
+                },
+                {
+                  "label": "New Brunswick",
+                  "value": "New Brunswick"
+                },
+                {
+                  "label": "Newfoundland",
+                  "value": "Newfoundland"
+                },
+                {
+                  "label": "Northwest Territories",
+                  "value": "Northwest Territories"
+                },
+                {
+                  "label": "Nova Scotia",
+                  "value": "Nova Scotia"
+                },
+                {
+                  "label": "Nunavut",
+                  "value": "Nunavut"
+                },
+                {
+                  "label": "Ontario",
+                  "value": "Ontario"
+                },
+                {
+                  "label": "Prince Edward Island",
+                  "value": "Prince Edward Island"
+                },
+                {
+                  "label": "Quebec",
+                  "value": "Quebec"
+                },
+                {
+                  "label": "Saint Pierre and Miquelon",
+                  "value": "Saint Pierre and Miquelon"
+                },
+                {
+                  "label": "Saskatchewan",
+                  "value": "Saskatchewan"
+                },
+                {
+                  "label": "Yukon",
+                  "value": "Yukon"
+                }
+              ],
+              "data_name": "vascan_filter_geography",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "Filter the VASCAN database based on geographical distribution by selecting ONE region (e.g. Canadian province). Can be combined with growth form filter.",
+              "disabled": false,
+              "hidden": false,
+              "key": "7826",
+              "label": "VASCAN Filter: Geography",
+              "multiple": false,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "ChoiceField",
+              "visible_conditions": [
+                {
+                  "field_key": "7bb3",
+                  "operator": "equal_to",
+                  "value": "VASCAN"
+                },
+                {
+                  "field_key": "1db4",
+                  "operator": "is_empty",
+                  "value": ""
+                }
+              ],
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": "all"
+            },
+            {
+              "allow_other": false,
+              "choices": [
+                {
+                  "label": "herb",
+                  "value": "herb"
+                },
+                {
+                  "label": "shrub",
+                  "value": "shrub"
+                },
+                {
+                  "label": "tree",
+                  "value": "tree"
+                },
+                {
+                  "label": "vine",
+                  "value": "vine"
+                }
+              ],
+              "data_name": "vascan_filter_growth_form",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "Filter VASCAN database based by selecting ONE particular growth form. Can be combined with geography filter.",
+              "disabled": false,
+              "hidden": false,
+              "key": "c51f",
+              "label": "VASCAN Filter: Growth Form",
+              "multiple": false,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "ChoiceField",
+              "visible_conditions": [
+                {
+                  "field_key": "1db4",
+                  "operator": "is_empty",
+                  "value": ""
+                },
+                {
+                  "field_key": "7bb3",
+                  "operator": "equal_to",
+                  "value": "VASCAN"
+                }
+              ],
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": "all"
+            },
+            {
+              "allow_creating_records": false,
+              "allow_existing_records": true,
+              "allow_multiple_records": false,
+              "allow_updating_records": false,
+              "data_name": "vascan_taxon",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "A group of vascular plants considered by taxonomists to form a homogeneous unit, based on the VASCAN database.",
+              "disabled": false,
+              "form_id": "",
+              "hidden": false,
+              "key": "1db4",
+              "label": "VASCAN Taxon",
+              "record_conditions": [
+                {
+                  "linked_form_field_key": "f63b",
+                  "operator": "contains",
+                  "value_field_key": "7826"
+                },
+                {
+                  "linked_form_field_key": "755a",
+                  "operator": "contains",
+                  "value_field_key": "c51f"
+                }
+              ],
+              "record_conditions_type": "all",
+              "record_defaults": [
+                {
+                  "destination_field_key": "ba51",
+                  "source_field_key": "60da"
+                },
+                {
+                  "destination_field_key": "cd06",
+                  "source_field_key": "b971"
+                },
+                {
+                  "destination_field_key": "eb9a",
+                  "source_field_key": "a226"
+                }
+              ],
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "RecordLinkField",
+              "visible_conditions": [
+                {
+                  "field_key": "7bb3",
+                  "operator": "equal_to",
+                  "value": "VASCAN"
+                }
+              ],
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": "all"
+            },
+            {
+              "allow_creating_records": false,
+              "allow_existing_records": true,
+              "allow_multiple_records": false,
+              "allow_updating_records": false,
+              "data_name": "bryoquel_taxon",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "A group of bryphoytes considered by taxonomists to form a homogeneous unit, based on the Bryoquel database.",
+              "disabled": false,
+              "form_id": "",
+              "hidden": false,
+              "key": "502a",
+              "label": "Bryoquel Taxon",
+              "record_conditions": null,
+              "record_conditions_type": null,
+              "record_defaults": [
+                {
+                  "destination_field_key": "ba51",
+                  "source_field_key": "60da"
+                },
+                {
+                  "destination_field_key": "cd06",
+                  "source_field_key": "b971"
+                },
+                {
+                  "destination_field_key": "eb9a",
+                  "source_field_key": "a226"
+                }
+              ],
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "RecordLinkField",
+              "visible_conditions": [
+                {
+                  "field_key": "7bb3",
+                  "operator": "equal_to",
+                  "value": "Bryoquel"
+                }
+              ],
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": "all"
+            },
+            {
+              "allow_creating_records": true,
+              "allow_existing_records": true,
+              "allow_multiple_records": false,
+              "allow_updating_records": true,
+              "data_name": "generic_taxon",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "A group of organisms considered by taxonomists to form a homogeneous unit,  whose taxon is not available in VASCAN or other taxonomic checklists accessible within Fulcrum.",
+              "disabled": false,
+              "form_id": "",
+              "hidden": false,
+              "key": "1ed3",
+              "label": "Generic Taxon",
+              "record_conditions": null,
+              "record_conditions_type": null,
+              "record_defaults": [
+                {
+                  "destination_field_key": "ba51",
+                  "source_field_key": "7e8f"
+                },
+                {
+                  "destination_field_key": "cd06",
+                  "source_field_key": "b971"
+                },
+                {
+                  "destination_field_key": "eb9a",
+                  "source_field_key": "a226"
+                }
+              ],
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "RecordLinkField",
+              "visible_conditions": [
+                {
+                  "field_key": "7bb3",
+                  "operator": "equal_to",
+                  "value": "Generic"
+                }
+              ],
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": "all"
+            },
+            {
+              "data_name": "plant_scientific_name",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "The full scientific name, with authorship if known.",
+              "disabled": true,
+              "hidden": false,
+              "key": "ba51",
+              "label": "Plant Scientific Name",
+              "max_length": null,
+              "min_length": null,
+              "numeric": false,
+              "pattern": null,
+              "pattern_description": null,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "TextField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "data_name": "vernacular_name_english",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "An English common or vernacular name.",
+              "disabled": false,
+              "hidden": false,
+              "key": "cd06",
+              "label": "Vernacular Name (English)",
+              "max_length": null,
+              "min_length": null,
+              "numeric": false,
+              "pattern": null,
+              "pattern_description": null,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "TextField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "data_name": "vernacular_name_french",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "A French common or vernacular name.",
+              "disabled": false,
+              "hidden": false,
+              "key": "eb9a",
+              "label": "Vernacular Name (French)",
+              "max_length": null,
+              "min_length": null,
+              "numeric": false,
+              "pattern": null,
+              "pattern_description": null,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "TextField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            }
+          ],
+          "geometry_required": false,
+          "geometry_types": [
+            "Point"
+          ],
+          "hidden": false,
+          "key": "0320",
+          "label": "Dominant Plant Species",
+          "max_length": null,
+          "min_length": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "title_field_key": null,
+          "title_field_keys": [
+            "ba51",
+            "cd06",
+            "eb9a"
+          ],
+          "type": "Repeatable",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "allow_other": true,
+          "classification_set_id": "",
+          "data_name": "vegetation_type",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Description of the vegetation type in which the collected plant occurs. Uses the Canadian National Vegetation Classification (CVNC); http://cnvc-cnvc.ca/index.cfm.",
+          "disabled": false,
+          "hidden": false,
+          "key": "b2b8",
+          "label": "Vegetation Type",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "ClassificationField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "vegetation_type_definitions",
+          "default_url": "http://cnvc-cnvc.ca/search.cfm",
+          "default_value": null,
+          "description": "Canadian National Vegetation Classification",
+          "disabled": false,
+          "hidden": false,
+          "key": "24ff",
+          "label": "Vegetation Type Definitions",
+          "required": false,
+          "required_conditions": [],
+          "required_conditions_type": null,
+          "type": "HyperlinkField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "allow_other": false,
+          "choices": [
+            {
+              "label": "Xeric",
+              "value": "Xeric"
+            },
+            {
+              "label": "Mesic",
+              "value": "Mesic"
+            },
+            {
+              "label": "Hygric",
+              "value": "Hygric"
+            }
+          ],
+          "data_name": "soil_moisture_class",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Moisture class of the soil, as defined in Table 10.2 of Canada's National Forest Inventory: Ground Sampling Guidelines.\n\nXeric: Water removed very rapidly in relation to supply; soil is moist for brief periods following precipitation. The primary water source is precipitation.\n\nMesic: Water is removed somewhat slowly in relation to supply; soil may remain moist for a significant, but sometimes short, period of the year. Available soil moisture reflects climatic inputs. The primary water source is precipitation in moderate to fine-textured soils and limited seepage in coarse-textured soils.\n\nHygric: Water is removed so slowly that the water table is at or above the soil all year; gleyed mineral or organic soils. The primary water source is a permanent water table.",
+          "disabled": false,
+          "hidden": false,
+          "key": "9c12",
+          "label": "Soil Moisture Class",
+          "multiple": false,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "ChoiceField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "habitat_remarks",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Comments or notes about the habitat.",
+          "disabled": false,
+          "hidden": false,
+          "key": "ecc0",
+          "label": "Habitat Remarks",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": "[^,;]+",
+          "pattern_description": "No comma ',' or semi-colon ';' due to csv",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "audio_remarks",
+          "default_value": null,
+          "description": "Audio comments about the habitat.",
+          "disabled": false,
+          "hidden": false,
+          "key": "a865",
+          "label": "Audio Remarks",
+          "max_length": null,
+          "min_length": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "track_enabled": false,
+          "type": "AudioField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "annotations_enabled": false,
+          "data_name": "habitat_photos",
+          "default_value": null,
+          "description": "Photos of the habitat.",
+          "disabled": false,
+          "hidden": false,
+          "key": "2017",
+          "label": "Habitat Photos",
+          "max_length": 5,
+          "min_length": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "PhotoField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "e108",
+      "label": "Habitat",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "data_quality_control",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "deleted",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "0204",
+          "label": "Deleted",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "deleted_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "21f4",
+          "label": "Deleted By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_deleted",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "4252",
+          "label": "Date Deleted",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "rejection",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "d1f1",
+          "label": "Rejection",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "rejected_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": true,
+          "hidden": false,
+          "key": "d834",
+          "label": "Rejected By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_rejected",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": true,
+          "hidden": false,
+          "key": "e1e9",
+          "label": "Date Rejected",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "verification",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "159a",
+          "label": "Verification",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "verified_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "b194",
+          "label": "Verified By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_verified",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "6e9b",
+          "label": "Date Verified",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "submission",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "bc0d",
+          "label": "Submission",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "submitted_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "41b4",
+          "label": "Submitted By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_submitted",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "9b52",
+          "label": "Date Submitted",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "approbation",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "74c6",
+          "label": "Approbation",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "approved_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "0d81",
+          "label": "Approved By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_approved",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "f679",
+          "label": "Date Approved",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "publication",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "21a9",
+          "label": "Publication",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "published_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "8628",
+          "label": "Published By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_published",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "a667",
+          "label": "Date Published",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "a215",
+      "label": "Data Quality Control",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "hidden_variables",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "number_of_rejections",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "format": "decimal",
+          "hidden": false,
+          "key": "42ef",
+          "label": "Number of Rejections",
+          "max": null,
+          "max_length": null,
+          "min": null,
+          "min_length": null,
+          "numeric": true,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": true,
+      "key": "85ea",
+      "label": "Hidden Variables",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    }
+  ],
+  "geometry_required": false,
+  "geometry_types": [
+    "Point"
+  ],
+  "hidden_on_dashboard": false,
+  "id": "",
+  "image": "https://fulcrumapp.s3.amazonaws.com/form-images/f6405c31-9030-459b-9ed3-49f170dd3b89-65a4622d-409d-45f1-8114-dfd389f79856.png",
+  "image_large": "https://fulcrumapp.s3.amazonaws.com/form-images/large_f6405c31-9030-459b-9ed3-49f170dd3b89-65a4622d-409d-45f1-8114-dfd389f79856.png",
+  "image_small": "https://fulcrumapp.s3.amazonaws.com/form-images/small_f6405c31-9030-459b-9ed3-49f170dd3b89-65a4622d-409d-45f1-8114-dfd389f79856.png",
+  "image_thumbnail": "https://fulcrumapp.s3.amazonaws.com/form-images/thumb_f6405c31-9030-459b-9ed3-49f170dd3b89-65a4622d-409d-45f1-8114-dfd389f79856.png",
+  "name": "Pressed Specimens",
+  "projects_enabled": true,
+  "record_count": 529,
+  "record_title_key": "4b09",
+  "script": "/* SAVE VERSIONS */\n\n/*****************************************************************\n\n            FUNCTIONS DATA EVENTS PRESSED SPECIMENS\n\n*******************************************************************/\n\n/*\n * DEBUG\n */\nfunction viewConfig(){\n  SHOWERRORS(true);\n  ALERT(\">\"+INSPECT(CONFIG()));\n}\n\n/*\n * CONFIGURATION\n */\n\n// Enable or disable manual location\nfunction setConfig4Draft(b){\n  if (b==true||b==false){\n    var config = {\n      drafts_enabled: b\n    };\n    SETFORMATTRIBUTES(config);\n  }\n}\n\nfunction setConfig4Location(b){\n  if (b==true||b==false){\n    var config = {\n      manual_location_enabled: b\n    };\n    SETFORMATTRIBUTES(config);\n  }\n}\n\nfunction setConfig4LocationDraft(b){\n  setConfig4Draft(b);\n  setConfig4Location(b);\n}\n\n/*\n * STATUS and ACCESS TO DATA\n */\nvar projectNameGV    = \"\";\nvar fieldUserRolesGV = ['Standard User','Graduate Student']; // include more roles if needed\nvar usernameGV       = USERFULLNAME();\nvar readOnlyStatusesGV = ['deleted', 'verified', 'submitted', 'approved', 'published'];\n\nfunction isRejected(){\n  return (STATUS()=='rejected' || EXISTS($rejected_by));\n}\n\nfunction isVerified(){\n  return STATUS()=='verified';\n}\n\nfunction isStandardUser(){\n  return ISROLE(fieldUserRolesGV);\n}\n\nfunction isReadOnly(){\n  return CONTAINS(readOnlyStatusesGV, STATUS());\n}\n\nfunction isEditableByUsers(){\n  return ISROLE(fieldUserRolesGV) && !isReadOnly();\n}\n\nfunction isLocked4Users(){\n  return ISROLE(fieldUserRolesGV) && isReadOnly();\n}\n\nfunction getNumOfBoundaries() {\n  if ($boundaries != null){\n    return LEN(ARRAY(REPEATABLEVALUES($boundaries, 'boundary')));\n  } else {\n    return 0;\n  }\n}\n\nfunction setNumOfBoundaries() {\n  SETVALUE('number_of_boundaries',getNumOfBoundaries());\n}\n\nfunction notSameBoundariesNumber(){\n  if (VALUE('number_of_boundaries')==getNumOfBoundaries()){\n    return false;\n  } else {\n    return true;\n  }\n}\n\nfunction changeValues(){\n  DATANAMES().forEach(function(dataName) {\n    SETREADONLY(dataName, null);\n  });\n  loadDataQualityControl();\n  setConfig4LocationDraft(true);\n  //gpsAccessible(); // NO GPS NEEDED HERE\n}\n\nfunction readOnlyValues(){\n  DATANAMES().forEach(function(dataName) {\n    SETREADONLY(dataName, true);\n  });\n  loadDataQualityControl();\n  setConfig4LocationDraft(false);\n  //gpsNotAccessible(); // NO GPS NEEDED HERE\n}\n\nfunction resetIdenInfo() {\n  SETVALUE('plant_scientific_name', null);\n  SETVALUE('vernacular_name_english', null);\n  SETVALUE('vernacular_name_french', null);\n}\n\n/*\n * Data Quality Control View\n */\n\nfunction loadDataQualityControl(){\n  var readOnlyDataQuality = ['data_quality_control','deleted','deleted_by','date_deleted','verification','verified_by','date_verified','submission','submitted_by','date_submitted','approbation','approved_by','date_approved','rejection','rejected_by','date_rejected','publication','published_by','date_published'];\n  \n  readOnlyDataQuality.forEach(function(element) {\n    SETREADONLY(element, true);\n    SETHIDDEN(element,true);\n  });\n  \n  var status = STATUS();\n  if (status=='deleted'){\n    SETHIDDEN('data_quality_control',false);\n    SETHIDDEN('deleted',false);\n    SETHIDDEN('deleted_by',false);\n    SETHIDDEN('date_deleted',false);\n  } else {\n    if (status!='pending'){\n      SETHIDDEN('data_quality_control',false);\n      SETHIDDEN('verification',false);\n      SETHIDDEN('verified_by',false);\n      SETHIDDEN('date_verified',false);\n      if (isRejected()) {\n        SETHIDDEN('rejection',false);\n        SETHIDDEN('rejected_by',false);\n        SETHIDDEN('date_rejected',false);\n      }\n      if (status!='verified'){\n        SETHIDDEN('submission',false);\n        SETHIDDEN('submitted_by',false);\n        SETHIDDEN('date_submitted',false);\n      }\n      if (status=='published' || status=='approved'){\n        SETHIDDEN('approbation',false);\n        SETHIDDEN('approved_by',false);\n        SETHIDDEN('date_approved',false);\n      }\n      if (status=='published'){\n        SETHIDDEN('publication',false);\n        SETHIDDEN('published_by',false);\n        SETHIDDEN('date_published',false);\n      }\n    }\n  }\n}\n\n/*\n * DRAFT TEST\n */\nfunction isAbsent(b,element){\n  if (!EXISTS(element) || VALUE(element)=='' || !VALUE(element)){\n    return true;\n  }\n  return b;\n}\n\nfunction tabAbsence(b,tab){\n  tab.forEach(function(element) {\n    b = isAbsent(b,element);\n  });\n  return b;\n}  \n\nfunction isDraft(){\n  var b = false;\n  if (!PROJECTNAME()) {\n    b = true;\n  }\n  var val = ['plant','date_collected','collected_by'];\n  b = tabAbsence(b,val);\n  var ps = CHOICEVALUE($deposited_in_herbarium);\n  if (ps=='yes'){\n    var val = ['herbarium_name','accession_number'];\n    b = tabAbsence(b,val);\n  }\n  return b;\n}\n\n\n\n/*****************************************************************\n                        FUNCTION CALL\n******************************************************************/\nfunction callback(event) {\n\n  /*****************************\n            LOAD RECORD\n  ******************************/\n  if (event.name === 'load-record') {\n    // Grab the project name\n    projectNameGV = PROJECTNAME();\n    if (ISROLE(fieldUserRolesGV)) {\n      SETSTATUSFILTER(['pending']);\n    }\n    changeValues();\n  }\n  \n  /*****************************\n            NEW RECORD\n  ******************************/\n  // Assign plant ID using timestamp with 8 characters\n  // Assign observed name as default user\n  if (event.name === 'new-record') {\n    var timenow = ONCE(FLOOR((Date.now() - 1519142458000) / 1000));\n    SETVALUE('specimen_id', timenow);\n    SETVALUE('collected_by', usernameGV);\n    loadDataQualityControl();\n  }\n\n  /*****************************\n            EDIT RECORD\n  ******************************/\n  if (event.name === 'edit-record') {\n    /*\n    - For field users, only show 'submitted' status when 'verified'\n      if the current role is one of the designated field user roles...\n    - make record and read-only if verified, submitted, approved or published\n    - lock status and project to all standard users when verified except person who verified\n    - lock status to all standard users when submitted\n    */\n    if (isReadOnly()){ // \n      // make read-only\n      readOnlyValues();\n      setConfig4LocationDraft(false);\n      if (isStandardUser()){\n        // add the submitted status\n        SETSTATUSFILTER(['pending', 'verified', 'submitted', 'deleted']);\n        if (isRejected()){\n          SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);\n        }\n        // lock the record status\n        SETREADONLY('@status', true);\n        //... except for verified by the standard user who verified the record\n        if ((usernameGV == $verified_by) && (STATUS() == 'verified')) {\n          SETREADONLY('@status', false);\n        }\n      }\n    } else {\n      if (!isDraft() && isStandardUser()){\n        SETSTATUSFILTER(['pending', 'verified', 'deleted']);\n        if (isRejected()){\n          SETSTATUSFILTER(['rejected', 'verified', 'deleted']);\n        }\n      }\n      SETREADONLY('@status', false);\n    }\n  }\n\n  /*****************************\n            VALIDATE RECORD\n  ******************************/\n  if (event.name === 'validate-record') {\n    if (!PROJECTNAME()) {\n      INVALID('Select a project before saving.');\n    }\n  }\n\n  /*****************************\n            SAVE RECORD\n  ******************************/\n  if (event.name === 'save-record') {\n    if (isReadOnly()) {\n      SETPROJECT(projectNameGV);\n    }\n  }\n  \n  /*****************************\n            CHANGE STATUS\n  ******************************/\n  if (event.name === 'change-status') {\n    var today = new Date();\n    var status = STATUS();\n\n    if (status == 'pending'|| status == 'rejected') {\n      changeValues();\n    }\n\n    if (status == 'pending') {\n      if (isStandardUser()){\n        SETSTATUSFILTER(['pending']);\n      }\n    } else if (status == 'rejected') {\n      if (isStandardUser()){\n        SETSTATUSFILTER(['rejected']);\n      } else {\n        var numR = 1;\n        if (EXISTS($number_of_rejections)){\n          numR = $number_of_rejections+1;\n        }\n        SETVALUE('number_of_rejections',numR);\n        SETVALUE('rejected_by', usernameGV);\n        SETVALUE('date_rejected', today);\n      }\n    } else if (status == 'verified') {\n      readOnlyValues();\n      SETVALUE('verified_by', usernameGV);\n      SETVALUE('date_verified', today);\n      projectNameGV = PROJECTNAME();\n      ALERT('This will make the record read-only for all other standard users.');\n    } else if (status == 'deleted') {\n      readOnlyValues();\n      SETVALUE('deleted_by', usernameGV);\n      SETVALUE('date_deleted', today);\n      ALERT('This will make the record read-only for all other standard users. Deleted records can no longer be edited by standard users.');\n    } else if (status == 'submitted') {\n      SETVALUE('submitted_by', usernameGV);\n      SETVALUE('date_submitted', today);\n      ALERT('This will submit the record to the data manager for approval. Submitted records can no longer be edited by standard users.');\n    } else if (status == 'approved') {\n      SETVALUE('approved_by', usernameGV);\n      SETVALUE('date_approved', today);\n    } else if (status == 'published') {\n      SETVALUE('published_by', usernameGV);\n      SETVALUE('date_published', today);\n    }\n    loadDataQualityControl();\n  }\n\n  /*****************************\n            CHANGE PROJECT\n  ******************************/\n  // save user name and date for data control steps\n  if (event.name === 'change-project') {\n    if (projectNameGV != \"\" && isReadOnly()) {\n      ALERT('The project can not be changed for this status');\n      SETPROJECT(projectNameGV);\n    }\n  }\n\n  /*****************************\n            CHANGE GEOMETRY\n  ******************************/\n  if (event.name === 'change-geometry') {\n  }\n\n  /*****************************\n            CHANGE\n  ******************************/\n  if (event.name === 'change'){\n    if (event.field === 'filter_site'){\n      if (ISBLANK($filter_site)){\n        SETVALUE('filter_site_id', null);\n      }\n    }\n    if (event.field === 'plant'){\n      if (ISBLANK($plant)){\n        SETVALUE('plant_id', null);\n        SETVALUE('scientific_name', null);\n      } else {\n        SETVALUE('filter_site', null);\n        SETVALUE('filter_site_id', null);\n        SETVALUE('collected_by', usernameGV);\n        SETVALUE('date_collected', Date.now());\n      }\n    }\n    \n    if (event.field === 'taxon_checklist'){\n      resetIdenInfo();\n      \n      if (CHOICEVALUE($taxon_checklist) == 'VASCAN') {\n        SETVALUE('bryoquel_taxon', null);\n        SETVALUE('generic_taxon', null);\n      } else if (CHOICEVALUE($taxon_checklist) == 'Bryoquel') {\n        SETVALUE('vascan_taxon', null);\n        SETVALUE('generic_taxon', null);\n        SETVALUE('vascan_filter_geography', null);\n        SETVALUE('vascan_filter_growth_form', null);\n      } else if (CHOICEVALUE($taxon_checklist) == 'Generic') {\n        SETVALUE('vascan_taxon', null);\n        SETVALUE('bryoquel_taxon', null);\n        SETVALUE('vascan_filter_geography', null);\n        SETVALUE('vascan_filter_growth_form', null);\n      }\n    }\n    if (event.field === 'vascan_taxon' || event.field === 'bryoquel_taxon' || event.field === 'generic_taxon') {\n      if (ISBLANK($vascan_taxon) && ISBLANK($bryoquel_taxon) && ISBLANK($generic_taxon)) {\n        resetIdenInfo();\n      }\n    }\n    if (event.field === 'vascan_taxon') {\n      if (!ISBLANK($vascan_taxon)) {\n        SETVALUE('vascan_filter_geography', null);\n        SETVALUE('vascan_filter_growth_form', null);\n      }\n    }\n  }\n\n  /*****************************\n            CLICK\n  ******************************/\n  if (event.name === 'click'){\n  }\n\n  /*****************************\n            REPEATABLE\n  ******************************/\n  if (event.name === 'new-repeatable'){\n  }\n  \n  if (event.name === 'load-repeatable'){\n  }\n\n  if (event.name === 'validate-repeatable'){\n  }\n\n}\n\n/********** FUNCTIONS **********/\nON('load-record', callback);\nON('new-record', callback);\nON('edit-record', callback);\nON('validate-record', callback);\nON('save-record', callback);\nON('change-status', callback);\nON('change-project', callback);\nON('change', 'filter_site', callback);\nON('change', 'plant', callback);\nON('change', 'taxon_checklist', callback);\nON('change', 'vascan_taxon', callback);\nON('change', 'bryoquel_taxon', callback);\nON('change', 'generic_taxon', callback);\n",
+  "status_field": {
+    "choices": [
+      {
+        "color": "#FF8819",
+        "label": "Pending Verification",
+        "value": "pending"
+      },
+      {
+        "color": "#CB0D0C",
+        "label": "Rejected",
+        "value": "rejected"
+      },
+      {
+        "color": "#1891C9",
+        "label": "Verified",
+        "value": "verified"
+      },
+      {
+        "color": "#87D30F",
+        "label": "Submitted",
+        "value": "submitted"
+      },
+      {
+        "color": "#2D5D00",
+        "label": "Approved",
+        "value": "approved"
+      },
+      {
+        "color": "#2D5D00",
+        "label": "Published",
+        "value": "published"
+      },
+      {
+        "color": "#242424",
+        "label": "Deleted",
+        "value": "deleted"
+      }
+    ],
+    "data_name": "record_status",
+    "default_previous_value": false,
+    "default_value": "pending",
+    "description": "Status of record. Record first requires verification. Once verified, it can be submitted for approval; this locks the record for standard users. If approved, the record eventually gets published. If rejected, it goes back to standard users for further verification.",
+    "disabled": false,
+    "enabled": true,
+    "hidden": false,
+    "key": "@status",
+    "label": "Record Status",
+    "read_only": false,
+    "required": false,
+    "type": "StatusField"
+  },
+  "title_field_keys": [
+    "4b09",
+    "4bc0"
+  ],
+  "updated_at": "2019-02-08T21:58:31Z",
+  "version": 74
+}
