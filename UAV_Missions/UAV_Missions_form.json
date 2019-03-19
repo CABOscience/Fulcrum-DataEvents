@@ -1,0 +1,93 @@
+{
+  "assignment_enabled": false,
+  "auto_assign": false,
+  "bounding_box": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "created_at": "2018-02-20T23:54:24Z",
+  "description": "",
+  "elements": [
+    {
+      "data_name": "study_site",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "allow_creating_records": true,
+          "allow_existing_records": true,
+          "allow_multiple_records": false,
+          "allow_updating_records": true,
+          "data_name": "site",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "form_id": "",
+          "hidden": false,
+          "key": "4f44",
+          "label": "Site",
+          "record_conditions": null,
+          "record_conditions_type": null,
+          "record_defaults": null,
+          "required": true,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "RecordLinkField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "97c7",
+      "label": "Study Site",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    }
+  ],
+  "geometry_required": false,
+  "geometry_types": [
+    "Point"
+  ],
+  "hidden_on_dashboard": false,
+  "id": "",
+  "image": "https://fulcrumapp.s3.amazonaws.com/form-images/d5c80a48-022b-4a9f-8ff5-d7ed9fedf409-d9acfe31-01cb-4565-a79f-23ac7ff0bf38.png",
+  "image_large": "https://fulcrumapp.s3.amazonaws.com/form-images/large_d5c80a48-022b-4a9f-8ff5-d7ed9fedf409-d9acfe31-01cb-4565-a79f-23ac7ff0bf38.png",
+  "image_small": "https://fulcrumapp.s3.amazonaws.com/form-images/small_d5c80a48-022b-4a9f-8ff5-d7ed9fedf409-d9acfe31-01cb-4565-a79f-23ac7ff0bf38.png",
+  "image_thumbnail": "https://fulcrumapp.s3.amazonaws.com/form-images/thumb_d5c80a48-022b-4a9f-8ff5-d7ed9fedf409-d9acfe31-01cb-4565-a79f-23ac7ff0bf38.png",
+  "name": "UAV Missions",
+  "projects_enabled": true,
+  "record_count": 0,
+  "record_title_key": "4f44",
+  "script": "/* SAVE VERSIONS */\n\n\n// Projet validation\nON('validate-record', function (event) {\n  if (!PROJECTNAME()) {\n    INVALID('Select a project before saving.');\n  }\n});",
+  "status_field": {
+    "choices": [],
+    "data_name": "status",
+    "default_previous_value": false,
+    "default_value": "",
+    "description": "",
+    "disabled": false,
+    "enabled": false,
+    "hidden": false,
+    "key": "@status",
+    "label": "Status",
+    "read_only": false,
+    "required": false,
+    "type": "StatusField"
+  },
+  "title_field_keys": [
+    "4f44"
+  ],
+  "updated_at": "2018-08-21T19:53:41Z",
+  "version": 5
+}
