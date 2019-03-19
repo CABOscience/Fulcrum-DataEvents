@@ -1,0 +1,901 @@
+{
+  "assignment_enabled": false,
+  "auto_assign": false,
+  "bounding_box": [
+    45.501775,
+    -73.45974,
+    45.501775,
+    -73.45974
+  ],
+  "created_at": "2018-02-24T21:28:37Z",
+  "description": "References used to make taxonomic identifications of plants.",
+  "elements": [
+    {
+      "allow_other": false,
+      "choices": [
+        {
+          "label": "book",
+          "value": "book"
+        },
+        {
+          "label": "book chapter",
+          "value": "book chapter"
+        },
+        {
+          "label": "webpage",
+          "value": "webpage"
+        },
+        {
+          "label": "article",
+          "value": "article"
+        },
+        {
+          "label": "report",
+          "value": "report"
+        },
+        {
+          "label": "thesis",
+          "value": "thesis"
+        }
+      ],
+      "data_name": "resource_type",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "acbf",
+      "label": "Resource Type",
+      "multiple": false,
+      "required": true,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "ChoiceField",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "title",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "21d2",
+      "label": "Title",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": true,
+      "required_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "not_equal_to",
+          "value": "webpage"
+        }
+      ],
+      "required_conditions_type": "all",
+      "type": "TextField",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "book_title",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "e5ae",
+      "label": "Book Title",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": true,
+      "required_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book chapter"
+        }
+      ],
+      "required_conditions_type": "all",
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book chapter"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "authors",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "elements": [
+        {
+          "data_name": "author_last_name",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "6740",
+          "label": "Last Name",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "author_first_name",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "20d8",
+          "label": "First Name",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "author_initials",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "1427",
+          "label": "Initial(s)",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "geometry_required": false,
+      "geometry_types": [],
+      "hidden": false,
+      "key": "9c66",
+      "label": "Author(s)",
+      "max_length": null,
+      "min_length": null,
+      "required": true,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "title_field_key": null,
+      "title_field_keys": [
+        "6740",
+        "20d8"
+      ],
+      "type": "Repeatable",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "first_author_last_name",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": {
+        "currency": null,
+        "style": "text"
+      },
+      "expression": "FIRST(REPEATABLEVALUES($authors, 'author_last_name'),1)",
+      "hidden": true,
+      "key": "1e72",
+      "label": "First Author Last Name",
+      "required": false,
+      "required_conditions": [],
+      "required_conditions_type": null,
+      "type": "CalculatedField",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "editors",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "elements": [
+        {
+          "data_name": "editor_last_name",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "bde6",
+          "label": "Last Name",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "editor_first_name",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "e4aa",
+          "label": "First Name",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "editor_initials",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "5b67",
+          "label": "Initial(s)",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "geometry_required": false,
+      "geometry_types": [],
+      "hidden": false,
+      "key": "30fa",
+      "label": "Editor(s)",
+      "max_length": null,
+      "min_length": null,
+      "required": true,
+      "required_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book chapter"
+        }
+      ],
+      "required_conditions_type": "all",
+      "title_field_key": null,
+      "title_field_keys": [
+        "bde6",
+        "e4aa"
+      ],
+      "type": "Repeatable",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book chapter"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "publication",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": "Name of the publication (e.g. journal name).",
+      "disabled": false,
+      "hidden": false,
+      "key": "6b02",
+      "label": "Publication",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": true,
+      "required_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "article"
+        }
+      ],
+      "required_conditions_type": "all",
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "article"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "year",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "format": "integer",
+      "hidden": false,
+      "key": "459d",
+      "label": "Year",
+      "max": 2100.0,
+      "max_length": null,
+      "min": 1500.0,
+      "min_length": null,
+      "numeric": true,
+      "required": true,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "TextField",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "volume",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "2f21",
+      "label": "Volume",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": true,
+      "required_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "article"
+        }
+      ],
+      "required_conditions_type": "all",
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "article"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "issue",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "bdb9",
+      "label": "Issue",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "article"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "pages",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "5299",
+      "label": "Pages",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": "[0-9.-]+",
+      "pattern_description": "Alphanumeric Only",
+      "required": true,
+      "required_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "article"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book chapter"
+        }
+      ],
+      "required_conditions_type": "any",
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "article"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book chapter"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "any"
+    },
+    {
+      "data_name": "number_of_pages",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "format": "integer",
+      "hidden": false,
+      "key": "5a3c",
+      "label": "Number of Pages",
+      "max": null,
+      "max_length": null,
+      "min": null,
+      "min_length": null,
+      "numeric": true,
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "report"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "thesis"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "any"
+    },
+    {
+      "data_name": "edition",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "db29",
+      "label": "Edition",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book chapter"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "any"
+    },
+    {
+      "data_name": "publisher",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "c527",
+      "label": "Publisher",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book chapter"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "report"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "any"
+    },
+    {
+      "data_name": "university",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "0745",
+      "label": "University",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": true,
+      "required_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "thesis"
+        }
+      ],
+      "required_conditions_type": "all",
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "thesis"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "location",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": "Location (e.g. city, country).",
+      "disabled": false,
+      "hidden": false,
+      "key": "1e89",
+      "label": "Location",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "book chapter"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "report"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "thesis"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "any"
+    },
+    {
+      "allow_other": true,
+      "choices": [
+        {
+          "label": "Ph.D.",
+          "value": "Ph.D."
+        },
+        {
+          "label": "M.Sc.",
+          "value": "M.Sc."
+        },
+        {
+          "label": "Honours",
+          "value": "Honours"
+        }
+      ],
+      "data_name": "thesis_type",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "e22a",
+      "label": "Thesis Type",
+      "multiple": false,
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "ChoiceField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "thesis"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "doi",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "4541",
+      "label": "DOI",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "not_equal_to",
+          "value": "webpage"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "url",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "838b",
+      "label": "URL",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": true,
+      "required_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "webpage"
+        }
+      ],
+      "required_conditions_type": "all",
+      "type": "TextField",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "date_accessed",
+      "default_previous_value": false,
+      "default_value": "now",
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "644f",
+      "label": "Date Accessed",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "DateTimeField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "webpage"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "report_number",
+      "default_previous_value": false,
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "edce",
+      "label": "Report Number",
+      "max_length": null,
+      "min_length": null,
+      "numeric": false,
+      "pattern": null,
+      "pattern_description": null,
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "TextField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "equal_to",
+          "value": "report"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "resource_photos",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "hidden": false,
+      "key": "99c3",
+      "label": "Resource Photos",
+      "max_length": 1,
+      "min_length": null,
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "PhotoField",
+      "visible_conditions": [
+        {
+          "field_key": "acbf",
+          "operator": "not_equal_to",
+          "value": "webpage"
+        },
+        {
+          "field_key": "acbf",
+          "operator": "not_equal_to",
+          "value": "article"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    }
+  ],
+  "geometry_required": false,
+  "geometry_types": [],
+  "hidden_on_dashboard": true,
+  "id": "",
+  "image": "https://fulcrumapp.s3.amazonaws.com/form-images/89dcf7c3-914a-4243-9733-30749a349009-adf8592f-9c5b-4acf-a18c-3a0a17167c1a.png",
+  "image_large": "https://fulcrumapp.s3.amazonaws.com/form-images/large_89dcf7c3-914a-4243-9733-30749a349009-adf8592f-9c5b-4acf-a18c-3a0a17167c1a.png",
+  "image_small": "https://fulcrumapp.s3.amazonaws.com/form-images/small_89dcf7c3-914a-4243-9733-30749a349009-adf8592f-9c5b-4acf-a18c-3a0a17167c1a.png",
+  "image_thumbnail": "https://fulcrumapp.s3.amazonaws.com/form-images/thumb_89dcf7c3-914a-4243-9733-30749a349009-adf8592f-9c5b-4acf-a18c-3a0a17167c1a.png",
+  "name": "Identification References",
+  "projects_enabled": false,
+  "record_count": 1,
+  "record_title_key": "1e72",
+  "script": null,
+  "status_field": {
+    "choices": [],
+    "data_name": "status",
+    "default_previous_value": false,
+    "default_value": "",
+    "description": "",
+    "disabled": false,
+    "enabled": false,
+    "hidden": false,
+    "key": "@status",
+    "label": "Status",
+    "read_only": false,
+    "required": false,
+    "type": "StatusField"
+  },
+  "title_field_keys": [
+    "1e72",
+    "459d",
+    "21d2"
+  ],
+  "updated_at": "2018-03-13T15:54:34Z",
+  "version": 61
+}
