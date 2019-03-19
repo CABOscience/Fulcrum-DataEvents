@@ -1,0 +1,2115 @@
+{
+  "assignment_enabled": false,
+  "auto_assign": false,
+  "bounding_box": [
+    6.7055226e-07,
+    -75.6644143,
+    46.7736645,
+    0.000261515378952
+  ],
+  "created_at": "2018-03-14T18:44:27Z",
+  "description": "Individual plants that are georeferenced, identified, measured, and/or sampled.",
+  "elements": [
+    {
+      "data_name": "site_and_plot",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "allow_creating_records": true,
+          "allow_existing_records": true,
+          "allow_multiple_records": false,
+          "allow_updating_records": true,
+          "data_name": "site",
+          "default_previous_value": true,
+          "default_value": null,
+          "description": "The study site within which the plant occurs.\n\nBefore creating a new site, ask co-workers if a site has been created on another device but not yet synced.\n\nIf not, create a new site record.",
+          "disabled": false,
+          "form_id": "513e9dbf-09be-4eed-88a8-60db607aa1e8",
+          "hidden": false,
+          "key": "bda7",
+          "label": "Site",
+          "record_conditions": null,
+          "record_conditions_type": null,
+          "record_defaults": [
+            {
+              "destination_field_key": "0c3b",
+              "source_field_key": "33f0"
+            },
+            {
+              "destination_field_key": "2c28",
+              "source_field_key": "f7bb"
+            },
+            {
+              "destination_field_key": "2d17",
+              "source_field_key": "7a17"
+            }
+          ],
+          "required": true,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "RecordLinkField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "allow_creating_records": false,
+          "allow_existing_records": true,
+          "allow_multiple_records": false,
+          "allow_updating_records": true,
+          "data_name": "plot",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The plot in which the plant occurs.",
+          "disabled": false,
+          "form_id": "fd35169b-186c-4548-a5e5-488bd7432152",
+          "hidden": false,
+          "key": "bef5",
+          "label": "Plot",
+          "record_conditions": [
+            {
+              "linked_form_field_key": "8d8f",
+              "operator": "equal_to",
+              "value_field_key": "0c3b"
+            }
+          ],
+          "record_conditions_type": "all",
+          "record_defaults": [
+            {
+              "destination_field_key": "9ff5",
+              "source_field_key": "8a8c"
+            },
+            {
+              "destination_field_key": "4f05",
+              "source_field_key": "2eaa"
+            }
+          ],
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "RecordLinkField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "site_plot_information",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "display": "inline",
+          "elements": [
+            {
+              "data_name": "site_id",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": null,
+              "disabled": true,
+              "hidden": false,
+              "key": "0c3b",
+              "label": "Site ID",
+              "max_length": null,
+              "min_length": null,
+              "numeric": false,
+              "pattern": null,
+              "pattern_description": null,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "TextField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "data_name": "plot_id",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": null,
+              "disabled": true,
+              "hidden": false,
+              "key": "4f05",
+              "label": "Plot ID",
+              "max_length": null,
+              "min_length": null,
+              "numeric": false,
+              "pattern": null,
+              "pattern_description": null,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "TextField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "data_name": "plot_field_id",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": null,
+              "disabled": true,
+              "hidden": false,
+              "key": "9ff5",
+              "label": "Plot Field ID",
+              "max_length": null,
+              "min_length": null,
+              "numeric": false,
+              "pattern": null,
+              "pattern_description": null,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "TextField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "data_name": "corners_latitude",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": null,
+              "disabled": true,
+              "hidden": false,
+              "key": "2c28",
+              "label": "Corners Latitude",
+              "max_length": null,
+              "min_length": null,
+              "numeric": false,
+              "pattern": null,
+              "pattern_description": null,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "TextField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "data_name": "corners_longitude",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": null,
+              "disabled": true,
+              "hidden": false,
+              "key": "2d17",
+              "label": "Corners Longitude",
+              "max_length": null,
+              "min_length": null,
+              "numeric": false,
+              "pattern": null,
+              "pattern_description": null,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "TextField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            }
+          ],
+          "hidden": true,
+          "key": "8b0a",
+          "label": "Site Plot information",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Section",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "53b4",
+      "label": "Site and Plot",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "plant",
+      "default_value": null,
+      "description": "Plant selected for leaf spectroscopy and/or trait measurements, and/or collection of a pressed specimen.",
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "plant_id",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Unique field ID for the plant. Defined automatically as the Unix timestamp (= number fo seconds since 1970-01-01 00:00:00UTC) - 1519142458 (to obtain a smaller number).",
+          "disabled": true,
+          "hidden": false,
+          "key": "4d42",
+          "label": "Plant ID",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": "[a-zA-Z0-9.-]+",
+          "pattern_description": "Alphanumeric Only",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "plant_tagged",
+          "default_previous_value": false,
+          "default_value": "no",
+          "description": "Is the plant marked using a tag (e.g. aluminium tag, annotated flagging tape)?",
+          "disabled": false,
+          "hidden": false,
+          "key": "1a7b",
+          "label": "Plant Tagged?",
+          "negative": {
+            "label": "No",
+            "value": "no"
+          },
+          "neutral": {
+            "label": "N/A",
+            "value": "n/a"
+          },
+          "neutral_enabled": false,
+          "positive": {
+            "label": "Yes",
+            "value": "yes"
+          },
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "YesNoField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "tag_id",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "9c5f",
+          "label": "Tag ID",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": "[a-zA-Z0-9-*]+",
+          "pattern_description": "Alphanumeric Only",
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "1a7b",
+              "operator": "equal_to",
+              "value": "yes"
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "TextField",
+          "visible_conditions": [
+            {
+              "field_key": "1a7b",
+              "operator": "equal_to",
+              "value": "yes"
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "allow_other": true,
+          "choices": [
+            {
+              "label": "aluminium tag",
+              "value": "aluminium tag"
+            },
+            {
+              "label": "annotated flagging tape",
+              "value": "annotated flagging tape"
+            },
+            {
+              "label": "stake at plant base",
+              "value": "stake at plant base"
+            }
+          ],
+          "data_name": "tag_type",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "5895",
+          "label": "Tag Type",
+          "multiple": false,
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "1a7b",
+              "operator": "equal_to",
+              "value": "yes"
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "ChoiceField",
+          "visible_conditions": [
+            {
+              "field_key": "1a7b",
+              "operator": "equal_to",
+              "value": "yes"
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "data_name": "tag_remarks",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Comments or notes about the tag.",
+          "disabled": false,
+          "hidden": false,
+          "key": "2512",
+          "label": "Tag Remarks",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": [
+            {
+              "field_key": "1a7b",
+              "operator": "equal_to",
+              "value": "yes"
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "data_name": "plant_photos",
+          "default_value": null,
+          "description": "Photos showing parts of or the entire plant, and/or also its immediate surrounding environment.",
+          "disabled": false,
+          "hidden": false,
+          "key": "6792",
+          "label": "Plant Photos",
+          "max_length": 5,
+          "min_length": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "PhotoField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "close_up_photos",
+          "default_value": null,
+          "description": "Close-up photos of plant showing characteristic features useful for taxonomic identification (e.g. flowers, fruits).",
+          "disabled": false,
+          "hidden": false,
+          "key": "a1f3",
+          "label": "Close-Up Photos",
+          "max_length": 10,
+          "min_length": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "PhotoField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "plant_remarks",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Comments or notes about the plant.",
+          "disabled": false,
+          "hidden": false,
+          "key": "dc5e",
+          "label": "Plant Remarks",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "7e0d",
+      "label": "Plant",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "plant_first_occurrence",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "allow_other": true,
+          "choice_list_id": "1319a28b-4d36-453e-9ac2-4ccf373d9287",
+          "data_name": "first_observed_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "A list of names of people responsible for recording the First Occurrence. The primary collector or observer, especially one who applies a personal identifier (Plant ID or Tag ID), should be listed first.",
+          "disabled": false,
+          "hidden": false,
+          "key": "73d2",
+          "label": "First Observed By",
+          "max_length": null,
+          "min_length": null,
+          "multiple": true,
+          "required": true,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "ChoiceField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_first_observed",
+          "default_previous_value": false,
+          "default_value": "now",
+          "description": "The date when the First Occurrence was recorded.",
+          "disabled": false,
+          "hidden": false,
+          "key": "ac85",
+          "label": "Date First Observed",
+          "required": true,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "first_occurrence_remarks",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Comments or notes about the First Occurrence.",
+          "disabled": false,
+          "hidden": false,
+          "key": "633f",
+          "label": "First Occurrence Remarks",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "b3de",
+      "label": "Plant First Occurrence",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "location",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "latitude",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The geographic latitude (in decimal degrees, using the EPSG:4326 / WGS84  spatial reference system) of the geographic center of the plot. Positive values are north of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.",
+          "disabled": true,
+          "format": "decimal",
+          "hidden": false,
+          "key": "0847",
+          "label": "Latitude (degrees)",
+          "max": 90.0,
+          "max_length": null,
+          "min": -90.0,
+          "min_length": null,
+          "numeric": true,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "longitude",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The geographic longitude (in decimal degrees, using the EPSG:4326 / WGS84 spatial reference system) of the geographic center of the plot. Positive values are east of the Greenwich Meridian, negative values are west of it. Legal values lie between -180 and 180, inclusive.",
+          "disabled": true,
+          "format": "decimal",
+          "hidden": false,
+          "key": "6b6a",
+          "label": "Longitude (degrees)",
+          "max": 180.0,
+          "max_length": null,
+          "min": -180.0,
+          "min_length": null,
+          "numeric": true,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "horizontal_accuracy",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The horizontal distance (in meters) from the given latitude and longitude describing the smallest circle containing the whole of the location of the plot center. Leave the value empty if the uncertainty is unknown, cannot be estimated, or is not applicable (because there are no coordinates).  Zero is not a valid value for this term.\n\nNOTE: it is not clear how Fulcrum gets this value, and what it is. For a general discussion about location accuracy, see: http://www.navipedia.net/index.php/Accuracy.  Presumably Fulcrum takes it directly from the device GPS, although this might mean different things in Android or iOS.\n\nIn iOS, which metric of horizontal accuracy is used is not specified (see: https://developer.apple.com/documentation/corelocation/cllocation/1423599-horizontalaccuracy). They only say that it corresponds to \"the radius of uncertainty for the location, measured in meters\". This implies a 2D measure of horizontal accuracy.\n\nAndroid provides a much clearer definition of horizontal accuracy (see https://developer.android.com/reference/android/location/Location.html#getAccuracy()): \"We define horizontal accuracy as the radius of 68% confidence. In other words, if you draw a circle centered at this location's latitude and longitude, and with a radius equal to the accuracy, then there is a 68% probability that the true location is inside the circle\".",
+          "disabled": true,
+          "format": "decimal",
+          "hidden": false,
+          "key": "3487",
+          "label": "Horizontal Accuracy (m)",
+          "max": null,
+          "max_length": null,
+          "min": null,
+          "min_length": null,
+          "numeric": true,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "altitude",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The elevation in meters (m) above the ellipsoid defined by the EPSG:4326 / WGS84 spatial reference system. This is commonly referred to as the height in meters above mean sea level (AMSL).",
+          "disabled": true,
+          "format": "decimal",
+          "hidden": false,
+          "key": "0334",
+          "label": "Altitude (m)",
+          "max": 8850.0,
+          "max_length": null,
+          "min": -413.0,
+          "min_length": null,
+          "numeric": true,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "vertical_accuracy",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The vertical uncertainty associated with an altitude measurement, in meters (m). Leave the value empty if the uncertainty is unknown, cannot be estimated, or is not applicable (because there are no coordinates).  Zero is not a valid value for this term.\n\nNOTE: it is not clear how Fulcrum gets this value, and what it is. For a general discussion about location accuracy, see: http://www.navipedia.net/index.php/Accuracy.  Presumably Fulcrum takes it directly from the device GPS, although this might mean different things in Android or iOS.\n\nIn iOS, which metric of vertical accuracy is used is not specified (see: https://developer.apple.com/documentation/corelocation/cllocation/1423550-verticalaccuracy). They only say that it corresponds to \"the accuracy of the altitude value, measured in meters\".\n\nAndroid provides a much clearer definition of vertical accuracy (see https://developer.android.com/reference/android/location/Location.html#getVerticalAccuracyMeters()): \"We define vertical accuracy at 68% confidence. Specifically, as 1-side of the 2-sided range above and below the estimated altitude, within which there is a 68% probability of finding the true altitude. In the case where the underlying distribution is assumed Gaussian normal, this would be considered 1 standard deviation. For example, if the estimated altitude is 150 m, and the vertical accuracy is 20 m then there is a 68% probability of the true altitude being between 130 and 170 m\".",
+          "disabled": true,
+          "format": "decimal",
+          "hidden": false,
+          "key": "ae5d",
+          "label": "Vertical Accuracy (m)",
+          "max": null,
+          "max_length": null,
+          "min": null,
+          "min_length": null,
+          "numeric": true,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "current_gps_information",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "5d3e",
+          "label": "Current GPS Information",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "gps_info",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "89ed",
+          "label": "GPS Info",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "update_location_with_gps",
+          "default_url": "",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "904b",
+          "label": "Update Location with GPS",
+          "required": false,
+          "required_conditions": [],
+          "required_conditions_type": null,
+          "type": "HyperlinkField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "4a88",
+      "label": "Location",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "taxon",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "allow_other": false,
+          "choices": [
+            {
+              "label": "VASCAN",
+              "value": "VASCAN"
+            },
+            {
+              "label": "Bryoquel",
+              "value": "Bryoquel"
+            },
+            {
+              "label": "Generic",
+              "value": "Generic"
+            }
+          ],
+          "data_name": "taxon_checklist",
+          "default_previous_value": false,
+          "default_value": "VASCAN",
+          "description": "The checklist used to provide the scientific name of the taxon.",
+          "disabled": false,
+          "hidden": false,
+          "key": "098f",
+          "label": "Taxon Checklist",
+          "multiple": false,
+          "required": true,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "ChoiceField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "allow_other": false,
+          "choices": [
+            {
+              "label": "Alberta",
+              "value": "Alberta"
+            },
+            {
+              "label": "British Columbia",
+              "value": "British Columbia"
+            },
+            {
+              "label": "Greenland",
+              "value": "Greenland"
+            },
+            {
+              "label": "Labrador",
+              "value": "Labrador"
+            },
+            {
+              "label": "Manitoba",
+              "value": "Manitoba"
+            },
+            {
+              "label": "New Brunswick",
+              "value": "New Brunswick"
+            },
+            {
+              "label": "Newfoundland",
+              "value": "Newfoundland"
+            },
+            {
+              "label": "Northwest Territories",
+              "value": "Northwest Territories"
+            },
+            {
+              "label": "Nova Scotia",
+              "value": "Nova Scotia"
+            },
+            {
+              "label": "Nunavut",
+              "value": "Nunavut"
+            },
+            {
+              "label": "Ontario",
+              "value": "Ontario"
+            },
+            {
+              "label": "Prince Edward Island",
+              "value": "Prince Edward Island"
+            },
+            {
+              "label": "Quebec",
+              "value": "Quebec"
+            },
+            {
+              "label": "Saint Pierre and Miquelon",
+              "value": "Saint Pierre and Miquelon"
+            },
+            {
+              "label": "Saskatchewan",
+              "value": "Saskatchewan"
+            },
+            {
+              "label": "Yukon",
+              "value": "Yukon"
+            }
+          ],
+          "data_name": "vascan_filter_geography",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Filter the VASCAN database based on geographical distribution by selecting ONE region (e.g. Canadian province). Can be combined with growth form filter.",
+          "disabled": false,
+          "hidden": false,
+          "key": "5949",
+          "label": "VASCAN Filter: Geography",
+          "multiple": false,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "ChoiceField",
+          "visible_conditions": [
+            {
+              "field_key": "098f",
+              "operator": "equal_to",
+              "value": "VASCAN"
+            },
+            {
+              "field_key": "1e44",
+              "operator": "is_empty",
+              "value": ""
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "allow_other": false,
+          "choices": [
+            {
+              "label": "herb",
+              "value": "herb"
+            },
+            {
+              "label": "shrub",
+              "value": "shrub"
+            },
+            {
+              "label": "tree",
+              "value": "tree"
+            },
+            {
+              "label": "vine",
+              "value": "vine"
+            }
+          ],
+          "data_name": "vascan_filter_growth_form",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Filter VASCAN database based by selecting ONE particular growth form. Can be combined with geography filter.",
+          "disabled": false,
+          "hidden": false,
+          "key": "2db3",
+          "label": "VASCAN Filter: Growth Form",
+          "multiple": false,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "ChoiceField",
+          "visible_conditions": [
+            {
+              "field_key": "098f",
+              "operator": "equal_to",
+              "value": "VASCAN"
+            },
+            {
+              "field_key": "1e44",
+              "operator": "is_empty",
+              "value": ""
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "allow_creating_records": false,
+          "allow_existing_records": true,
+          "allow_multiple_records": false,
+          "allow_updating_records": false,
+          "data_name": "vascan_taxon",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "A group of vascular plants considered by taxonomists to form a homogeneous unit, based on the VASCAN database.",
+          "disabled": false,
+          "form_id": "3d03f14a-3b9e-47fc-a5df-2f18625d4ad8",
+          "hidden": false,
+          "key": "1e44",
+          "label": "VASCAN Taxon",
+          "record_conditions": [
+            {
+              "linked_form_field_key": "755a",
+              "operator": "contains",
+              "value_field_key": "2db3"
+            },
+            {
+              "linked_form_field_key": "f63b",
+              "operator": "contains",
+              "value_field_key": "5949"
+            }
+          ],
+          "record_conditions_type": "all",
+          "record_defaults": [
+            {
+              "destination_field_key": "d730",
+              "source_field_key": "df05"
+            },
+            {
+              "destination_field_key": "2027",
+              "source_field_key": "60da"
+            }
+          ],
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "098f",
+              "operator": "equal_to",
+              "value": "VASCAN"
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "RecordLinkField",
+          "visible_conditions": [
+            {
+              "field_key": "098f",
+              "operator": "equal_to",
+              "value": "VASCAN"
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "allow_creating_records": false,
+          "allow_existing_records": true,
+          "allow_multiple_records": false,
+          "allow_updating_records": false,
+          "data_name": "bryoquel_taxon",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "A group of bryphoytes considered by taxonomists to form a homogeneous unit, based on the Bryoquel database.",
+          "disabled": false,
+          "form_id": "e9602e8c-eda6-45fc-8991-6a11248bdafc",
+          "hidden": false,
+          "key": "125d",
+          "label": "Bryoquel Taxon",
+          "record_conditions": null,
+          "record_conditions_type": null,
+          "record_defaults": [
+            {
+              "destination_field_key": "d730",
+              "source_field_key": "df05"
+            },
+            {
+              "destination_field_key": "2027",
+              "source_field_key": "60da"
+            }
+          ],
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "098f",
+              "operator": "equal_to",
+              "value": "Bryoquel"
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "RecordLinkField",
+          "visible_conditions": [
+            {
+              "field_key": "098f",
+              "operator": "equal_to",
+              "value": "Bryoquel"
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "allow_creating_records": true,
+          "allow_existing_records": true,
+          "allow_multiple_records": false,
+          "allow_updating_records": true,
+          "data_name": "generic_taxon",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "A group of organisms considered by taxonomists to form a homogeneous unit,  whose taxon is not available in VASCAN or other taxonomic checklists accessible within Fulcrum.",
+          "disabled": false,
+          "form_id": "1069916d-a518-44e8-ab4f-8b8594f28fcd",
+          "hidden": false,
+          "key": "a120",
+          "label": "Generic Taxon",
+          "record_conditions": null,
+          "record_conditions_type": null,
+          "record_defaults": [
+            {
+              "destination_field_key": "2027",
+              "source_field_key": "7e8f"
+            }
+          ],
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "098f",
+              "operator": "equal_to",
+              "value": "Generic"
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "RecordLinkField",
+          "visible_conditions": [
+            {
+              "field_key": "098f",
+              "operator": "equal_to",
+              "value": "Generic"
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "data_name": "scientific_name",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": true,
+          "hidden": true,
+          "key": "2027",
+          "label": "Scientific Name",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "taxon_id",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "format": "integer",
+          "hidden": true,
+          "key": "d730",
+          "label": "Taxon ID",
+          "max": null,
+          "max_length": null,
+          "min": null,
+          "min_length": null,
+          "numeric": true,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "b266",
+      "label": "Taxon",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    },
+    {
+      "data_name": "identification",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "allow_other": true,
+          "choice_list_id": "1319a28b-4d36-453e-9ac2-4ccf373d9287",
+          "data_name": "identified_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "A list of names of people who assigned the Taxon to the subject. The primary identifier should be listed first.",
+          "disabled": false,
+          "hidden": false,
+          "key": "3e2e",
+          "label": "Identified By",
+          "max_length": null,
+          "min_length": null,
+          "multiple": true,
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "2027",
+              "operator": "is_not_empty",
+              "value": ""
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "ChoiceField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_identified",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The date on which the subject was identified as representing the Taxon.",
+          "disabled": false,
+          "hidden": false,
+          "key": "3bcd",
+          "label": "Date Identified",
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "2027",
+              "operator": "is_not_empty",
+              "value": ""
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "allow_other": true,
+          "choice_list_id": "6c32f54f-32e9-449d-98b4-f93a40fbdaa8",
+          "data_name": "identification_protocol",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The name of the protocol used to determine the taxonomic identity.",
+          "disabled": false,
+          "hidden": false,
+          "key": "680c",
+          "label": "Identification Protocol",
+          "max_length": null,
+          "min_length": null,
+          "multiple": true,
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "2027",
+              "operator": "is_not_empty",
+              "value": ""
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "ChoiceField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "allow_creating_records": true,
+          "allow_existing_records": true,
+          "allow_multiple_records": true,
+          "allow_updating_records": true,
+          "data_name": "identification_references",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "The references (e.g. publication, online resource) used in the Identification.",
+          "disabled": false,
+          "form_id": "89dcf7c3-914a-4243-9733-30749a349009",
+          "hidden": false,
+          "key": "777a",
+          "label": "Identification Reference(s)",
+          "record_conditions": null,
+          "record_conditions_type": null,
+          "record_defaults": null,
+          "required": true,
+          "required_conditions": [
+            {
+              "field_key": "680c",
+              "operator": "equal_to",
+              "value": "published source"
+            }
+          ],
+          "required_conditions_type": "all",
+          "type": "RecordLinkField",
+          "visible_conditions": [
+            {
+              "field_key": "680c",
+              "operator": "equal_to",
+              "value": "published source"
+            }
+          ],
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": "all"
+        },
+        {
+          "data_name": "identification_qualifier",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "A brief phrase or a standard term (\"cf.\", \"aff.\") to express the determiner's doubts about the Identification. For the determination \"Quercus aff. agrifolia var. oxyadenia\", identificationQualifier would be \"aff. agrifolia var. oxyadenia\" with accompanying values \"Quercus\" in genus, \"agrifolia\" in specificEpithet, \"oxyadenia\" in infraspecificEpithet, and \"var.\" in rank. 2) For the determination \"Quercus agrifolia cf. var. oxyadenia\", identificationQualifier would be \"cf. var. oxyadenia \" with accompanying values \"Quercus\" in genus, \"agrifolia\" in specificEpithet, \"oxyadenia\" in infraspecificEpithet, and \"var.\" in rank. In most cases only the lowest taxon is in doubt, but cases exist where good reasons exist to suspect a specific or even infraspecific determination, without having a safe generic identification.",
+          "disabled": false,
+          "hidden": false,
+          "key": "7038",
+          "label": "Identification Qualifier",
+          "max_length": 100,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "identification_remarks",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": "Comments or notes about the Identification.",
+          "disabled": false,
+          "hidden": false,
+          "key": "de3f",
+          "label": "Identification Remarks",
+          "max_length": 200,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "identification_audio_remarks",
+          "default_value": null,
+          "description": "Audio comments or notes about the Identification.",
+          "disabled": false,
+          "hidden": false,
+          "key": "5886",
+          "label": "Identification Audio Remarks",
+          "max_length": 5,
+          "min_length": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "track_enabled": false,
+          "type": "AudioField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "3584",
+      "label": "Taxonomic Identification",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": [
+        {
+          "field_key": "2027",
+          "operator": "is_not_empty",
+          "value": ""
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "plant_size",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "size_measurements",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "elements": [
+            {
+              "allow_other": false,
+              "choices": [
+                {
+                  "label": "DBH",
+                  "value": "DBH"
+                },
+                {
+                  "label": "Height",
+                  "value": "Height"
+                },
+                {
+                  "label": "Crown diameter",
+                  "value": "Crown diameter"
+                },
+                {
+                  "label": "LAI",
+                  "value": "LAI"
+                }
+              ],
+              "data_name": "measurement_type",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "The type of size measurement(s) performed on the plant.",
+              "disabled": false,
+              "hidden": false,
+              "key": "dbca",
+              "label": "Measurement Type",
+              "max_length": null,
+              "min_length": 1,
+              "multiple": true,
+              "required": true,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "ChoiceField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "data_name": "dbh_cm",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "The diameter at breast height (= 1.3 m) for trees greater than 1.3 m tall.",
+              "disabled": false,
+              "format": "decimal",
+              "hidden": false,
+              "key": "9589",
+              "label": "DBH (cm)",
+              "max": 1000.0,
+              "max_length": null,
+              "min": 1.0,
+              "min_length": null,
+              "numeric": true,
+              "required": true,
+              "required_conditions": [
+                {
+                  "field_key": "dbca",
+                  "operator": "equal_to",
+                  "value": "DBH"
+                }
+              ],
+              "required_conditions_type": "all",
+              "type": "TextField",
+              "visible_conditions": [
+                {
+                  "field_key": "dbca",
+                  "operator": "equal_to",
+                  "value": "DBH"
+                }
+              ],
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": "all"
+            },
+            {
+              "data_name": "height_m",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "Plant height (m).",
+              "disabled": false,
+              "format": "decimal",
+              "hidden": false,
+              "key": "9d95",
+              "label": "Height (m)",
+              "max": 130.0,
+              "max_length": null,
+              "min": 0.001,
+              "min_length": null,
+              "numeric": true,
+              "required": true,
+              "required_conditions": [
+                {
+                  "field_key": "dbca",
+                  "operator": "equal_to",
+                  "value": "Height"
+                }
+              ],
+              "required_conditions_type": "all",
+              "type": "TextField",
+              "visible_conditions": [
+                {
+                  "field_key": "dbca",
+                  "operator": "equal_to",
+                  "value": "Height"
+                }
+              ],
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": "all"
+            },
+            {
+              "data_name": "crown_diameter_m",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "The diameter (m) of the entire crown at its widest.",
+              "disabled": false,
+              "format": "decimal",
+              "hidden": false,
+              "key": "e2c7",
+              "label": "Crown diameter (m)",
+              "max": 50.0,
+              "max_length": null,
+              "min": 0.001,
+              "min_length": null,
+              "numeric": true,
+              "required": true,
+              "required_conditions": [
+                {
+                  "field_key": "dbca",
+                  "operator": "equal_to",
+                  "value": "Crown diameter"
+                }
+              ],
+              "required_conditions_type": "all",
+              "type": "TextField",
+              "visible_conditions": [
+                {
+                  "field_key": "dbca",
+                  "operator": "equal_to",
+                  "value": "Crown diameter"
+                }
+              ],
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": "all"
+            },
+            {
+              "data_name": "leaf_area_index",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "The leaf area index (LAI) of the plant.",
+              "disabled": false,
+              "format": "decimal",
+              "hidden": false,
+              "key": "3962",
+              "label": "Leaf Area Index",
+              "max": 10.0,
+              "max_length": null,
+              "min": 0.001,
+              "min_length": null,
+              "numeric": true,
+              "required": true,
+              "required_conditions": [
+                {
+                  "field_key": "dbca",
+                  "operator": "equal_to",
+                  "value": "Leaf area index"
+                }
+              ],
+              "required_conditions_type": "all",
+              "type": "TextField",
+              "visible_conditions": [
+                {
+                  "field_key": "dbca",
+                  "operator": "equal_to",
+                  "value": "LAI"
+                }
+              ],
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": "all"
+            },
+            {
+              "allow_other": true,
+              "choice_list_id": "1319a28b-4d36-453e-9ac2-4ccf373d9287",
+              "data_name": "measured_by",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "A list of names of people,responsible for recording the size measurement(s). The primary observer should be listed first.",
+              "disabled": false,
+              "hidden": false,
+              "key": "9d49",
+              "label": "Measured By",
+              "max_length": null,
+              "min_length": null,
+              "multiple": true,
+              "required": true,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "ChoiceField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "data_name": "date_measured",
+              "default_previous_value": false,
+              "default_value": "now",
+              "description": "The date on which the plant was measured.",
+              "disabled": false,
+              "hidden": false,
+              "key": "793d",
+              "label": "Date Measured",
+              "required": true,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "DateTimeField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            },
+            {
+              "data_name": "size_measurements_id",
+              "default_previous_value": false,
+              "default_value": null,
+              "description": "DO NOT DELETE !\nITS USED IN FUNCTIONS",
+              "disabled": true,
+              "format": "decimal",
+              "hidden": true,
+              "key": "0d10",
+              "label": "Size Measurements ID",
+              "max": null,
+              "max_length": null,
+              "min": null,
+              "min_length": null,
+              "numeric": true,
+              "required": false,
+              "required_conditions": null,
+              "required_conditions_type": null,
+              "type": "TextField",
+              "visible_conditions": null,
+              "visible_conditions_behavior": "clear",
+              "visible_conditions_type": null
+            }
+          ],
+          "geometry_required": false,
+          "geometry_types": [],
+          "hidden": false,
+          "key": "5654",
+          "label": "Size Measurements",
+          "max_length": null,
+          "min_length": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "title_field_key": null,
+          "title_field_keys": [
+            "793d",
+            "dbca"
+          ],
+          "type": "Repeatable",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "number_of_size_measurements",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": true,
+          "format": "decimal",
+          "hidden": true,
+          "key": "e552",
+          "label": "Number of Size Measurements",
+          "max": null,
+          "max_length": null,
+          "min": null,
+          "min_length": null,
+          "numeric": true,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "265f",
+      "label": "Plant Size",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": [
+        {
+          "field_key": "098f",
+          "operator": "not_equal_to",
+          "value": "Bryoquel"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "data_quality_control",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "deleted",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "4ea0",
+          "label": "Deleted",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "deleted_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "70c3",
+          "label": "Deleted By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_deleted",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "5a68",
+          "label": "Date Deleted",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "rejection",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "12bc",
+          "label": "Rejection",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "rejected_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": true,
+          "hidden": false,
+          "key": "a075",
+          "label": "Rejected By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_rejected",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": true,
+          "hidden": false,
+          "key": "b3d1",
+          "label": "Date Rejected",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "verification",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "8e73",
+          "label": "Verification",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "verified_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "f701",
+          "label": "Verified By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_verified",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "d462",
+          "label": "Date Verified",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "submission",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "e104",
+          "label": "Submission",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "submitted_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "2133",
+          "label": "Submitted By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_submitted",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "f52a",
+          "label": "Date Submitted",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "approbation",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "1440",
+          "label": "Approbation",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "approved_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "5b3d",
+          "label": "Approved By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_approved",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "c292",
+          "label": "Date Approved",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "publication",
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "48b4",
+          "label": "Publication",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "Label",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "published_by",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "d1b0",
+          "label": "Published By",
+          "max_length": null,
+          "min_length": null,
+          "numeric": false,
+          "pattern": null,
+          "pattern_description": null,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        },
+        {
+          "data_name": "date_published",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "hidden": false,
+          "key": "bfc3",
+          "label": "Date Published",
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "DateTimeField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": false,
+      "key": "7cb6",
+      "label": "Data Quality Control",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": [
+        {
+          "field_key": "@status",
+          "operator": "not_equal_to",
+          "value": "pending"
+        }
+      ],
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": "all"
+    },
+    {
+      "data_name": "hidden_variables",
+      "default_value": null,
+      "description": null,
+      "disabled": false,
+      "display": "inline",
+      "elements": [
+        {
+          "data_name": "number_of_rejections",
+          "default_previous_value": false,
+          "default_value": null,
+          "description": null,
+          "disabled": false,
+          "format": "decimal",
+          "hidden": false,
+          "key": "359b",
+          "label": "Number of Rejections",
+          "max": null,
+          "max_length": null,
+          "min": null,
+          "min_length": null,
+          "numeric": true,
+          "required": false,
+          "required_conditions": null,
+          "required_conditions_type": null,
+          "type": "TextField",
+          "visible_conditions": null,
+          "visible_conditions_behavior": "clear",
+          "visible_conditions_type": null
+        }
+      ],
+      "hidden": true,
+      "key": "a7ab",
+      "label": "Hidden Variables",
+      "required": false,
+      "required_conditions": null,
+      "required_conditions_type": null,
+      "type": "Section",
+      "visible_conditions": null,
+      "visible_conditions_behavior": "clear",
+      "visible_conditions_type": null
+    }
+  ],
+  "geometry_required": true,
+  "geometry_types": [
+    "Point"
+  ],
+  "hidden_on_dashboard": false,
+  "id": "7a98cdf1-a37c-4f83-9a21-f7ea215ee0f6",
+  "image": "https://fulcrumapp.s3.amazonaws.com/form-images/7a98cdf1-a37c-4f83-9a21-f7ea215ee0f6-53722167-1698-41ba-b9d9-038b019667e4.png",
+  "image_large": "https://fulcrumapp.s3.amazonaws.com/form-images/large_7a98cdf1-a37c-4f83-9a21-f7ea215ee0f6-53722167-1698-41ba-b9d9-038b019667e4.png",
+  "image_small": "https://fulcrumapp.s3.amazonaws.com/form-images/small_7a98cdf1-a37c-4f83-9a21-f7ea215ee0f6-53722167-1698-41ba-b9d9-038b019667e4.png",
+  "image_thumbnail": "https://fulcrumapp.s3.amazonaws.com/form-images/thumb_7a98cdf1-a37c-4f83-9a21-f7ea215ee0f6-53722167-1698-41ba-b9d9-038b019667e4.png",
+  "name": "Plants",
+  "projects_enabled": true,
+  "record_count": 712,
+  "record_title_key": "4d42",
+  "script": "/* SAVE VERSIONS */\n\n/*****************************************************************\n\n            FUNCTIONS DATA EVENTS PLANTS\n\n*******************************************************************/\n\n/*\nTo set default site depending on:\na - latest site id position and actual position\nb - date saved and current date\nif !a && !b:\n  then clean site-id\n*/\n\n\n/*\n * DEBUG\n */\nfunction viewConfig(){\n  SHOWERRORS(true);\n  ALERT(\">\"+INSPECT(CONFIG()));\n}\n\n/*\n * INTERVAL\n */\nfunction stopInterval(interval,time){\n  SETTIMEOUT(function() {\n    CLEARINTERVAL(interval);\n  }, time);\n}\n\n/*\n * CONFIGURATION\n */\n\n// Enable or disable manual location\nfunction setConfig4Draft(b){\n  if (b==true||b==false){\n    var config = {\n      drafts_enabled: b\n    };\n    SETFORMATTRIBUTES(config);\n  }\n}\n\nfunction setConfig4Location(b){\n  if (b==true||b==false){\n    var config = {\n      manual_location_enabled: b\n    };\n    SETFORMATTRIBUTES(config);\n  }\n}\n\nfunction setConfig4LocationDraft(b){\n  setConfig4Draft(b);\n  setConfig4Location(b);\n}\n\n/*\n * REPEATABLE\n */\n\nfunction repeatableVariableInDict(repeatableVariable,dataname){\n  var t = {};\n  var i = 0;\n  var o = REPEATABLEVALUES(repeatableVariable,dataname);\n  o.forEach(function(element) {\n    if(!EXISTS(element) || element=='' || !element){\n      t[i]=\"\";\n    } else if(EXISTS(element.choice_values)){\n      t[i]=element.choice_values;\n    } else {\n      t[i]=element;\n    }\n    i+=1;\n  });\n  return t;\n}\n\nfunction getSizeOfDict(dict){\n  return Object.keys(t).length;\n}\n\nfunction getNumOfSizeFor(repeatableVariable,dataname) {\n  if ($size_measurements != null){\n    return LEN(ARRAY(REPEATABLEVALUES(repeatableVariable,dataname)));\n  } else {\n    return 0;\n  }\n}\n\n/*\n * GPS\n */\n\n//Function get horizontal accuracy value no matters from where\nfunction horizontalAccuracyNoMatters(){\n  if (EXISTS(CONFIG().recordHorizontalAccuracy)){\n    return CONFIG().recordHorizontalAccuracy;\n  }\n  if (EXISTS(CONFIG().recordUpdatedAccuracy)){\n    return CONFIG().recordUpdatedAccuracy;\n  }\n  if (EXISTS(CONFIG().recordCreatedAccuracy)){\n    return CONFIG().recordCreatedAccuracy;\n  }\n  if (EXISTS(CONFIG().featureCreatedAccuracy)){\n    return CONFIG().featureCreatedAccuracy;\n  }\n  if (EXISTS(CONFIG().featureUpdatedAccuracy)) {\n    return CONFIG().featureUpdatedAccuracy;\n  }\n  return '';\n}\n\n//Function get vertical accuracy value no matters from where\nfunction verticalAccuracyNoMatters(){\n  var r = CONFIG().recordVerticalAccuracy;\n  if (EXISTS(r)){\n    //ALERT('Vertical Accuracy from iPhone');\n    //DEBUG\n    //viewConfig();\n    return cleanDigit(r,2);\n  } else {\n    //DEBUG\n    //viewConfig();\n    //ALERT('No vertical Accuracy');\n  }\n\n  return '';\n}\n\n// Clean String Digit to a number after the dot\n// Remove 0 after on rigth\nfunction cleanDigit(val,num){\n  if (EXISTS(val)){\n    var tmp = FIXED(NUM(val),num, true);\n    var tmp2 = str2Num(tmp);\n    return tmp2;\n  }\n  return '';\n}\n\n// From String to number\nfunction str2Num(val){\n  if (ISNAN(val)){\n    var tmp = \"\"+val;\n    var nume = NUM(SUBSTITUTE(tmp,',','.'));\n    if (ISNUMBER(nume)){\n      return nume;\n    }\n    return val;\n  }\n  return val;\n}\n\n\n// Clean CURRENTLOCATION()\n// If CURRENTLOCATION() not available return empty values and .empty = true\nfunction getGPSLocation(){\n  var location = CURRENTLOCATION();\n  if (location) {\n    var cleanLocation = {};\n    \n    var alti = location.altitude;\n    alti     = cleanDigit(alti,2);\n    cleanLocation.altitude=alti;\n    \n    var lati = location.latitude;\n    lati     = cleanDigit(lati,7);\n    cleanLocation.latitude=lati;\n    \n    var long = location.longitude;\n    long     = cleanDigit(long,7);\n    cleanLocation.longitude=long;\n    \n    var accu = location.accuracy;\n    accu = cleanDigit(accu,2);\n    cleanLocation.accuracy=accu;\n    \n    cleanLocation.course=location.course;\n    cleanLocation.speed=location.speed;\n    cleanLocation.timestamp=location.timestamp;\n    cleanLocation.empty=false;\n    \n    return cleanLocation;\n  } else {\n    var emptyLocation = {\n      altitude:'',\n      latitude:'',\n      longitude:'',\n      accuracy:'',\n      course:'',\n      speed:'',\n      timestamp:'',\n      empty:true\n    };\n    return emptyLocation;\n  }\n}\n\n// GET information from current location\nfunction getGPSLatitude() {return getGPSLocation().latitude;}\nfunction getGPSLongitude(){return getGPSLocation().longitude;}\nfunction getGPSHAccuracy(){return getGPSLocation().accuracy;}\nfunction getGPSAltitude() {return getGPSLocation().altitude;}\n\n// Search first in config then in current location\nfunction getLongitude(){\n  if (EXISTS(LONGITUDE())){\n    return cleanDigit(LONGITUDE(),7);\n  } else if (EXISTS(CONFIG().recordGeometry.coordinates[0])){\n    return cleanDigit(CONFIG().recordGeometry.coordinates[0],7);\n  }\n  return getGPSLongitude();\n}\n\nfunction getLatitude(){\n  if (EXISTS(LATITUDE())){\n    return cleanDigit(LATITUDE(),7);\n  } else if (EXISTS(CONFIG().recordGeometry.coordinates[1])){\n    return cleanDigit(CONFIG().recordGeometry.coordinates[1],7);\n  }\n  return getGPSLatitude();\n}\n\nfunction getAltitude(){\n  if (EXISTS(ALTITUDE())){\n    return cleanDigit(ALTITUDE(),2);\n  }\n  return getGPSAltitude();\n}\n\n// Get the GPS information on live\n// https://developer.fulcrumapp.com/data-events/examples/display-gps-info/\nfunction updateLocationInfo() {\n  var location = getGPSLocation();\n  // if there is no location, display a special message\n  if (location.empty) {\n    SETLABEL('gps_info', 'Your GPS is not accessible. No Location Available');\n    return;\n  }\n\n  // format the display of the location data\n  var message = [\n    'Latitude: ' + location.latitude,\n    'Longitude: ' + location.longitude,\n    'Horizontal Accuracy: ' + location.accuracy,\n    'Altitude: ' + location.altitude\n  ].join('\\n');\n\n  // set the label property of the label on the form\n  SETLABEL('gps_info', message);\n  SETLABEL('bound_gps_info', message);\n}\n\n// Make GPS not available\nfunction gpsNotAccessible(){\n  SETHIDDEN('update_location_with_gps', true);\n  SETHIDDEN('current_gps_information', true);\n  SETHIDDEN('gps_info', true);\n  setConfig4LocationDraft(false);\n}\n\n// Make GPS available\nfunction gpsAccessible(){\n  SETREADONLY('update_location_with_gps', true);\n  SETHIDDEN('update_location_with_gps', false);\n  SETHIDDEN('current_gps_information', false);\n  SETHIDDEN('gps_info', false);\n  SETLABEL('gps_info', 'You can change GPS information');\n  // go ahead and update it now...\n  updateLocationInfo();\n  // ... and every 3 seconds\n  SETINTERVAL(updateLocationInfo, 3000);\n  setConfig4LocationDraft(true);\n}\n\n\n/*\n * STATUS and ACCESS TO DATA\n */\nvar storageGV        = STORAGE();\nvar projectNameGV    = \"\";\nvar fieldUserRolesGV = ['Standard User','Graduate Student']; // include more roles if needed\nvar usernameGV       = USERFULLNAME();\nvar readOnlyStatusesGV = ['deleted', 'verified', 'submitted', 'approved', 'published'];\n\nfunction isRejected(){\n  return (STATUS()=='rejected' || EXISTS($rejected_by));\n}\n\nfunction isVerified(){\n  return STATUS()=='verified';\n}\n\nfunction isStandardUser(){\n  return ISROLE(fieldUserRolesGV);\n}\n\nfunction isReadOnly(){\n  return CONTAINS(readOnlyStatusesGV, STATUS());\n}\n\nfunction isEditableByUsers(){\n  return ISROLE(fieldUserRolesGV) && !isReadOnly();\n}\n\nfunction isLocked4Users(){\n  return ISROLE(fieldUserRolesGV) && isReadOnly();\n}\n\nfunction getNumOfSizeMeasurements() {\n  return getNumOfSizeFor($size_measurements,'size_measurements_id');\n}\n\nfunction setNumOfSizeMeasurements() {\n  SETVALUE('number_of_size_measurements',getNumOfSizeMeasurements());\n}\n\nfunction notSameSizeMeasurementsNumber(){\n  if (VALUE('number_of_size_measurements')==getNumOfSizeMeasurements()){\n    return false;\n  } else {\n    return true;\n  }\n}\n\nfunction changeValues(){\n  DATANAMES().forEach(function(dataName) {\n    SETREADONLY(dataName, null);\n  });\n  loadDataQualityControl();\n  setConfig4LocationDraft(true);\n  gpsAccessible();\n}\n\nfunction readOnlyValues(){\n  DATANAMES().forEach(function(dataName) {\n    SETREADONLY(dataName, true);\n  });\n  loadDataQualityControl();\n  setConfig4LocationDraft(false);\n  gpsNotAccessible();\n}\n\nfunction resetIdenInfo() {\n  SETVALUE('scientific_name', null);\n  SETVALUE('identified_by', null);\n  SETVALUE('date_identified', null);\n  SETVALUE('identification_protocol', null);\n  SETVALUE('identification_references', null);\n  SETVALUE('identification_qualifier', null);\n  SETVALUE('identification_remarks', null);\n}\n\n/*\n * Data Quality Control View\n */\n\nfunction loadDataQualityControl(){\n  var readOnlyDataQuality = ['data_quality_control','deleted','deleted_by','date_deleted','verification','verified_by','date_verified','submission','submitted_by','date_submitted','approbation','approved_by','date_approved','rejection','rejected_by','date_rejected','publication','published_by','date_published'];\n  \n  readOnlyDataQuality.forEach(function(element) {\n    SETREADONLY(element, true);\n    SETHIDDEN(element,true);\n  });\n  \n  var status = STATUS();\n  if (status=='deleted'){\n    SETHIDDEN('data_quality_control',false);\n    SETHIDDEN('deleted',false);\n    SETHIDDEN('deleted_by',false);\n    SETHIDDEN('date_deleted',false);\n  } else {\n    if (status!='pending'){\n      SETHIDDEN('data_quality_control',false);\n      SETHIDDEN('verification',false);\n      SETHIDDEN('verified_by',false);\n      SETHIDDEN('date_verified',false);\n      if (isRejected()) {\n        SETHIDDEN('rejection',false);\n        SETHIDDEN('rejected_by',false);\n        SETHIDDEN('date_rejected',false);\n      }\n      if (status!='verified'){\n        SETHIDDEN('submission',false);\n        SETHIDDEN('submitted_by',false);\n        SETHIDDEN('date_submitted',false);\n      }\n      if (status=='published' || status=='approved'){\n        SETHIDDEN('approbation',false);\n        SETHIDDEN('approved_by',false);\n        SETHIDDEN('date_approved',false);\n      }\n      if (status=='published'){\n        SETHIDDEN('publication',false);\n        SETHIDDEN('published_by',false);\n        SETHIDDEN('date_published',false);\n      }\n    }\n  }\n}\n\n\n/*\n DRAFT test\nRecord link:    site (vascan_taxon bryoquel_taxon generic_taxon)[related to taxon_checklist options] (identification_references)[if identification_protocol==field,guide...]\nDate:           date_identified\nText:           (tag_id)[linked to plant tagged]\nmulti choice:   (tag_type)[linked to plant tagged] identified_by \nrepeatable:     (size_measurements)[if vascan] FAIT\nnumber:         \nchecklist:      taxon_checklist \nchoicelist:     identification_protocol\n* in repeatable: measured_by date_measured measurement_type \n*    \nDBH             dbh_cm\nHeight          height_m\nCrown diameter  crown_diameter_m\nLAI             leaf_area_index\n* \n*/\n\nfunction isAbsent(b,element){\n  if (!EXISTS(element) || VALUE(element)=='' || !VALUE(element)){\n    return true;\n  }\n  return b;\n}\n\nfunction tabAbsence(b,tab){\n  tab.forEach(function(element) {\n    b = isAbsent(b,element);\n  });\n  return b;\n}  \n\nfunction isDraft(){\n  var b = false;\n  if (!PROJECTNAME()) {\n    b = true;\n  }\n  var val = ['site','taxon_checklist','identification_protocol','date_identified','identified_by'];\n  b = tabAbsence(b,val);\n  if (!isAbsent(false,'plant_tagged')){\n    if (VALUE('plant_tagged')=='yes'){\n      var val = ['tag_id','tag_type'];\n      b = tabAbsence(b,val);\n    }\n  }\n  if (!isAbsent(false,'identification_protocol')){\n    if (CONTAINS(VALUE('identification_protocol').choice_values,'published source')){\n      var val = ['identification_references'];\n      b = tabAbsence(b,val);\n    }\n  }\n  if (EXISTS($taxon_checklist)){\n    var tc = VALUE('taxon_checklist');\n    if (tc=='Bryoquel'){\n      b = isAbsent(b,'bryoquel_taxon');\n    } else {\n      if (tc =='VASCAN'){\n        b = isAbsent(b,'vascan_taxon');\n      } else if (tc=='Generic'){\n        b = isAbsent(b,'generic_taxon');\n      }\n      var size = getNumOfSizeMeasurements();\n      if (size>0){\n        var mb = repeatableVariableInDict($size_measurements,'measured_by');\n        var mt = repeatableVariableInDict($size_measurements,'measurement_type');\n        var dm = repeatableVariableInDict($size_measurements,'date_measured');\n        var dc = repeatableVariableInDict($size_measurements,'dbh_cm');\n        var hm = repeatableVariableInDict($size_measurements,'height_m');\n        var cd = repeatableVariableInDict($size_measurements,'crown_diameter_m');\n        var la = repeatableVariableInDict($size_measurements,'leaf_area_index');\n        for (var i=0 ; i<size ; i++){\n          if (CONTAINS(mt[i],'DBH') && (dc[i]<1||dc[i]>1000)){\n            b = true;\n          } else if (CONTAINS(mt[i],'Height') && (hm[i]<0.001||hm[i]>130)){\n            b = true;\n          } else if (CONTAINS(mt[i],'Crown diameter') && (cd[i]<0.001||cd[i]>50)){\n            b = true;\n          } else if (CONTAINS(mt[i],'LAI') && (la[i]<0.001||la[i]>10)){\n            b = true;\n          } else if (mb[i]==\"\"||dm[i]==\"\"){\n            b = true;\n          }\n        }\n      }\n    }\n  }\n  return b;\n}\n\n/*\n * DATE\n */\n//SOURCE: https://stackoverflow.com/a/23593099\nfunction formatMMDDYY(date) {\n  var d = new Date(date),\n      month = '' + (d.getMonth() + 1),\n      day   = '' + d.getDate(),\n      year  =  LAST(''+d.getFullYear(), 2).join('');\n  if (month.length < 2) month = '0' + month;\n  if (day.length < 2) day = '0' + day;\n  return ''+month+day+year;\n}\n\nfunction setDateSaved(){\n  storageGV.setItem('date_saved',formatMMDDYY(new Date()));\n}\n\nfunction getDateSaved(){\n  return storageGV.getItem('date_saved');\n}\n\nfunction getCurrentDay(){\n  return formatMMDDYY(new Date());\n}\n\nfunction fromStringToDict(st){\n  var temp = st;\n  var dict = {};\n  var i    = 0;\n  while(CONTAINS(temp,'<>')){\n    var p = FIND(\"<>\", temp)-1;\n    var s  = \"\";\n    if (p>1) s  = LEFT(temp, p-1);\n    dict[\"\"+i]=s;\n    i+=1;\n    temp=RIGHT(temp, LEN(temp)-(p+2));\n    if (temp=='<>') temp = '';\n  }\n  return dict;\n}\n\nfunction getCornersLatitude(){\n  return fromStringToDict($corners_latitude);\n}\n\nfunction getCornersLongitude(){\n  return fromStringToDict($corners_longitude);\n}\n\nfunction getPositionSaved(){\n  if ($corners_longitude && $corners_latitude) return true;\n  return false;\n}\n\nfunction getVertex(){\n  var lats = getCornersLatitude();\n  var lonts = getCornersLongitude();\n  var vert = [];\n  for (var i = 0; i < LEN(lats); i++) {\n    vert[i]=[lats[i],lonts[i]];\n  }\n  return vert;\n}\n\n// https://github.com/substack/point-in-polygon\n// ray-casting algorithm based on\n// http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html\nfunction pointInPoly(point, vs) {\n  var x = NUM(point[0]), y = NUM(point[1]);\n  var inside = false;\n  for (var i = 0, j = LEN(vs) - 1; i < LEN(vs); j = i++) {\n    var xi = NUM(vs[i][0]), yi = NUM(vs[i][1]);\n    var xj = NUM(vs[j][0]), yj = NUM(vs[j][1]);\n    var intersect = ((yi > y) != (yj > y))\n      && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);\n    if (intersect) inside = !inside;\n  }\n  return inside;\n}\n\nfunction getCurrentPosition(){\n  return [getGPSLatitude(),getGPSLongitude()]\n}\n\nfunction isCurrentPositionAvailable(){\n  var lat = getGPSLatitude();\n  var lon = getGPSLongitude();\n  if (lat!='' && lon!=''){\n    return true;\n  }\n  return false;\n}\n\nfunction setSamePlace(){\n  var cp = getCurrentPosition();\n  if (isCurrentPositionAvailable()){\n    var vert = getVertex();\n    var b = pointInPoly(cp,vert);\n    setSamePlaceValue(b);\n  }\n}\n\n/*\n * Same day?\n */\nfunction checkSameSavedAndCurrent() {\n  if ($site){\n    var cs = getDateSaved();\n    var cd = getCurrentDay();\n    if (cs) {\n      if (cs != cd) {\n        cleanSite();\n      }\n    } else {\n      cleanSite();\n    }\n    var ps = getPositionSaved();\n    var cp = isCurrentPositionAvailable();\n    if (ps && cp) {\n      setSamePlace();\n      var a = getSamePlaceValue();\n      if (a=='false'){\n        cleanSite();\n        removeSamePlaceValue();\n      }\n    }\n  }\n}\n\nfunction cleanSite(){\n  SETVALUE('site',null);\n}\n\nfunction inSameSavedAndCurrent() {\n  checkSameSavedAndCurrent();\n  stopInterval(SETINTERVAL(checkSameSavedAndCurrent, 500),1000);\n}\n\nfunction setSamePlaceValue(v){\n  storageGV.setItem('SamePlaceValue',v);\n}\n\nfunction getSamePlaceValue(){\n  return storageGV.getItem('SamePlaceValue');\n}\n\nfunction removeSamePlaceValue(){\n  storageGV.removeItem('SamePlaceValue');\n}\n\n/*****************************************************************\n                        FUNCTION CALL\n******************************************************************/\nfunction callback(event) {\n\n  /*****************************\n            LOAD RECORD\n  ******************************/\n  if (event.name === 'load-record') {\n    // Grab the project name\n    projectNameGV = PROJECTNAME();\n    if (ISROLE(fieldUserRolesGV)) {\n      SETSTATUSFILTER(['pending']);\n    }\n    changeValues();\n  }\n  \n  /*****************************\n            NEW RECORD\n  ******************************/\n  // Assign plant ID using timestamp with 8 characters\n  // Assign observed name as default user\n  if (event.name === 'new-record') {\n    var timenow = ONCE(FLOOR((Date.now() - 1519142458000) / 1000)); \n    SETVALUE('plant_id', timenow);\n    SETVALUE('first_observed_by', USERFULLNAME());\n    loadDataQualityControl();\n    inSameSavedAndCurrent();\n  }\n\n  /*****************************\n            EDIT RECORD\n  ******************************/\n  if (event.name === 'edit-record') {\n    /*\n    - For field users, only show 'submitted' status when 'verified'\n      if the current role is one of the designated field user roles...\n    - make record and read-only if verified, submitted, approved or published\n    - lock status and project to all standard users when verified except person who verified\n    - lock status to all standard users when submitted\n    */\n    if (isReadOnly()){ // \n      // make read-only\n      readOnlyValues();\n      setConfig4LocationDraft(false);\n      if (isStandardUser()){\n        // add the submitted status\n        SETSTATUSFILTER(['pending', 'verified', 'submitted', 'deleted']);\n        if (isRejected()){\n          SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);\n        }\n        // lock the record status\n        SETREADONLY('@status', true);\n        //... except for verified by the standard user who verified the record\n        if ((usernameGV == $verified_by) && (STATUS() == 'verified')) {\n          SETREADONLY('@status', false);\n        }\n      }\n    } else {\n      if (!isDraft() && isStandardUser()){\n        SETSTATUSFILTER(['pending', 'verified', 'deleted']);\n        if (isRejected()){\n          SETSTATUSFILTER(['rejected', 'verified', 'deleted']);\n        }\n      }\n      SETREADONLY('@status', false);\n      /* GPS Information */\n      if (VALUE('horizontal_accuracy') === ''){\n        SETVALUE('horizontal_accuracy',horizontalAccuracyNoMatters());\n      }\n      if (VALUE('vertical_accuracy') === ''){\n        SETVALUE('vertical_accuracy',verticalAccuracyNoMatters());\n      }\n    }\n  }\n\n  /*****************************\n            VALIDATE RECORD\n  ******************************/\n  if (event.name === 'validate-record') {\n    if (!PROJECTNAME()) {\n      INVALID('Select a project before saving.');\n    }\n    if (notSameSizeMeasurementsNumber() && isReadOnly()){\n      INVALID('You cannot change the number of Scientific Names or Trees. It is not possible in read only mode.');\n    }\n    setDateSaved();\n    removeSamePlaceValue();\n  }\n\n  /*****************************\n            SAVE RECORD\n  ******************************/\n  if (event.name === 'save-record') {\n    if (isReadOnly()) {\n      SETPROJECT(projectNameGV);\n    }\n  }\n  \n  /*****************************\n            CHANGE STATUS\n  ******************************/\n  if (event.name === 'change-status') {\n    var today = new Date();\n    var status = STATUS();\n\n    if (status == 'pending'|| status == 'rejected') {\n      changeValues();\n    }\n\n    if (status == 'pending') {\n      if (isStandardUser()){\n        SETSTATUSFILTER(['pending']);\n      }\n    } else if (status == 'rejected') {\n      if (isStandardUser()){\n        SETSTATUSFILTER(['rejected']);\n      } else {\n        var numR = 1;\n        if (EXISTS($number_of_rejections)){\n          numR = $number_of_rejections+1;\n        }\n        SETVALUE('number_of_rejections',numR);\n        SETVALUE('rejected_by', usernameGV);\n        SETVALUE('date_rejected', today);\n      }\n    } else if (status == 'verified') {\n      readOnlyValues();\n      setNumOfSizeMeasurements();\n      SETVALUE('verified_by', usernameGV);\n      SETVALUE('date_verified', today);\n      projectNameGV = PROJECTNAME();\n      ALERT('This will make the record read-only for all other standard users.');\n    } else if (status == 'deleted') {\n      readOnlyValues();\n      setNumOfSizeMeasurements();\n      SETVALUE('deleted_by', usernameGV);\n      SETVALUE('date_deleted', today);\n      ALERT('This will make the record read-only for all other standard users. Deleted records can no longer be edited by standard users.');\n    } else if (status == 'submitted') {\n      SETVALUE('submitted_by', usernameGV);\n      SETVALUE('date_submitted', today);\n      ALERT('This will submit the record to the data manager for approval. Submitted records can no longer be edited by standard users.');\n    } else if (status == 'rejected') {\n      SETVALUE('rejected_by', usernameGV);\n      SETVALUE('date_rejected', today);\n    } else if (status == 'approved') {\n      SETVALUE('approved_by', usernameGV);\n      SETVALUE('date_approved', today);\n    } else if (status == 'published') {\n      SETVALUE('published_by', usernameGV);\n      SETVALUE('date_published', today);\n    }\n    loadDataQualityControl();\n  }\n\n  /*****************************\n            CHANGE PROJECT\n  ******************************/\n  // save user name and date for data control steps\n  if (event.name === 'change-project') {\n    if (projectNameGV != \"\" && isReadOnly()) {\n      ALERT('The project can not be changed for this status');\n      SETPROJECT(projectNameGV);\n    }\n  }\n\n  /*****************************\n            CHANGE GEOMETRY\n  ******************************/\n  if (event.name === 'change-geometry') {\n    if (!EXISTS(event.field)) {\n      SETVALUE('horizontal_accuracy','');\n      SETVALUE('vertical_accuracy','');\n      SETVALUE('altitude', '');\n      SETVALUE('latitude', getLatitude());\n      SETVALUE('longitude', getLongitude());\n      SETREADONLY('altitude', false);\n      SETREADONLY('horizontal_accuracy', false);\n      SETREADONLY('vertical_accuracy', false);\n    }\n  }\n\n  /*****************************\n            CHANGE\n  ******************************/\n  if (event.name === 'change'){\n\n    // clear values for tag-related fields if plant is not tagged\n    if (event.field === 'plant_tagged'){\n      if ($plant_tagged == \"no\") {\n        SETVALUE('tag_id', null);\n        SETVALUE('tag_type', null);\n        SETVALUE('tag_remarks', null);\n      }\n      // Be sure there is value setted\n      if (!EXISTS($plant_tagged)) {\n         SETVALUE('plant_tagged', \"no\");\n      }\n    }\n    // Assign identifier name and today's date when scientific name is changed\n    // and clear previous values\n    if (event.field === 'scientific_name'){\n      if (ISBLANK($scientific_name)) {\n        resetIdenInfo();\n      } else {\n        SETVALUE('identified_by', USERFULLNAME());\n        SETVALUE('date_identified', Date());\n      }\n    }\n    if (event.field === 'taxon_checklist'){\n      resetIdenInfo();\n      \n      if (CHOICEVALUE($taxon_checklist) == 'VASCAN') {\n        SETVALUE('bryoquel_taxon', null);\n        SETVALUE('generic_taxon', null);\n      } else if (CHOICEVALUE($taxon_checklist) == 'Bryoquel') {\n        SETVALUE('vascan_taxon', null);\n        SETVALUE('generic_taxon', null);\n        SETVALUE('vascan_filter_geography', null);\n        SETVALUE('vascan_filter_growth_form', null);\n      } else if (CHOICEVALUE($taxon_checklist) == 'Generic') {\n        SETVALUE('vascan_taxon', null);\n        SETVALUE('bryoquel_taxon', null);\n        SETVALUE('vascan_filter_geography', null);\n        SETVALUE('vascan_filter_growth_form', null);\n      }\n    }\n    \n    if (event.field === 'vascan_taxon' || event.field === 'bryoquel_taxon' || event.field === 'generic_taxon') {\n      if (ISBLANK($vascan_taxon) && ISBLANK($bryoquel_taxon) && ISBLANK($generic_taxon)) {\n        resetIdenInfo();\n      }\n    }\n    if (event.field === 'vascan_taxon') {\n      if (!ISBLANK($vascan_taxon)) {\n        SETVALUE('vascan_filter_geography', null);\n        SETVALUE('vascan_filter_growth_form', null);\n      }\n    }\n    if (event.field === 'site') {\n      if (ISBLANK($site)) {\n        SETVALUE('site_id', null);\n      }\n    }\n  }\n  \n  /*****************************\n            CLICK\n  ******************************/\n  if (event.name === 'click'){\n    \n    // UPDATE GPS POSITION\n    if (event.field === 'update_location_with_gps'){\n      var lat = getGPSLatitude();\n      var lon = getGPSLongitude();\n      var alt = getGPSAltitude();\n      SETVALUE('latitude', lat);\n      SETVALUE('longitude', lon);\n      SETLOCATION(lat,lon);\n      SETREADONLY('altitude', true);\n      SETVALUE('altitude', alt);\n      SETVALUE('horizontal_accuracy',getGPSHAccuracy());\n      SETVALUE('vertical_accuracy',verticalAccuracyNoMatters());\n    }\n  }\n  \n  /*****************************\n            REPEATABLE\n  ******************************/\n  if (event.name === 'new-repeatable'){\n    \n    // Assign measurer name as default user\n    if (event.field === 'size_measurements') {\n      SETVALUE('measured_by', USERFULLNAME());\n      SETVALUE('size_measurements_id', REPEATABLENUMBER());\n    }\n  }\n\n  if (event.name === 'validate-repeatable'){\n    if (event.field === 'size_measurements') {\n      if (isReadOnly()){\n        INVALID('You can not add size measurements in read only mode');\n      }\n    }\n  }\n\n}\n\n/********** FUNCTIONS **********/\nON('load-record', callback);\nON('new-record', callback);\nON('edit-record', callback);\nON('validate-record', callback);\nON('save-record', callback);\nON('change-status', callback);\nON('change-project', callback);\nON('change-geometry', callback);\nON('change', 'site', callback);\nON('change', 'scientific_name', callback);\nON('change', 'taxon_checklist', callback);\nON('change', 'plant_tagged', callback);\nON('change', 'vascan_taxon', callback);\nON('change', 'bryoquel_taxon', callback);\nON('change', 'generic_taxon', callback);\nON('click', 'update_location_with_gps', callback);\nON('new-repeatable', 'size_measurements', callback);\nON('validate-repeatable', 'size_measurements', callback);\n",
+  "status_field": {
+    "choices": [
+      {
+        "color": "#FF8819",
+        "label": "Pending Verification",
+        "value": "pending"
+      },
+      {
+        "color": "#CB0D0C",
+        "label": "Rejected",
+        "value": "rejected"
+      },
+      {
+        "color": "#1891C9",
+        "label": "Verified",
+        "value": "verified"
+      },
+      {
+        "color": "#87D30F",
+        "label": "Submitted",
+        "value": "submitted"
+      },
+      {
+        "color": "#2D5D00",
+        "label": "Approved",
+        "value": "approved"
+      },
+      {
+        "color": "#2D5D00",
+        "label": "Published",
+        "value": "published"
+      },
+      {
+        "color": "#242424",
+        "label": "Deleted",
+        "value": "deleted"
+      }
+    ],
+    "data_name": "record_status",
+    "default_previous_value": false,
+    "default_value": "pending",
+    "description": "Status of record. Record first requires verification. Once verified, it can be submitted for approval; this locks the record for standard users. If approved, the record eventually gets published. If rejected, it goes back to standard users for further verification.",
+    "disabled": false,
+    "enabled": true,
+    "hidden": false,
+    "key": "@status",
+    "label": "Record Status",
+    "read_only": false,
+    "required": false,
+    "type": "StatusField"
+  },
+  "title_field_keys": [
+    "4d42",
+    "2027",
+    "9c5f"
+  ],
+  "updated_at": "2018-09-12T19:05:40Z",
+  "version": 445
+}
