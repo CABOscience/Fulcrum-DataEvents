@@ -175,7 +175,8 @@ var storageGV        = STORAGE();
 var protLabelGV		 = "";
 var protValueGV		 = "";
 var projectNameGV    = "";
-var fieldUserRolesGV = ['Standard User','Graduate Student']; // include more roles if needed
+var fieldUserRolesGV = ['Standard User']; // include more roles if needed
+var fieldUserInterRolesGV = ['Graduate Student']; // include more roles if needed
 var usernameGV       = USERFULLNAME();
 var readOnlyStatusesGV = ['deleted', 'verified', 'submitted', 'approved', 'published'];
 var today = new Date();
@@ -190,6 +191,10 @@ function isVerified(){
 
 function isStandardUser(){
   return ISROLE(fieldUserRolesGV);
+}
+
+function isIntermediateUser(){
+  return ISROLE(fieldUserInterRolesGV);
 }
 
 function isReadOnly(){
@@ -646,7 +651,8 @@ function isSameSavedAndCurrent() {
  * 'properties_measured', 'leaf_sides_measured', 'leaf_larger_than_port', 'protocol', 'computer', 'spectroradiometer_id', 'instrumentation_id', 'panel_id', 'date_measured', 'measured_by', 'spectroradiometer_start_time', 'sample'
  */
 function makeGeneralOptionsReadOnly(b) {
-  var t = ['properties_measured', 'leaf_sides_measured', 'leaf_larger_than_port', 'protocol', 'computer', 'spectroradiometer_id', 'instrumentation_id', 'panel_id', 'date_measured', 'measured_by', 'spectroradiometer_start_time'];
+  /*var t = ['properties_measured', 'leaf_sides_measured', 'leaf_larger_than_port', 'protocol', 'computer', 'spectroradiometer_id', 'instrumentation_id', 'panel_id', 'date_measured', 'measured_by', 'spectroradiometer_start_time'];*/
+  var t = ['properties_measured', 'leaf_sides_measured', 'leaf_larger_than_port', 'protocol'];
   t.forEach(function(element) {
     SETREADONLY(element, b);
   });
@@ -942,6 +948,11 @@ function callback(event) {
     projectNameGV = PROJECTNAME();
     if (ISROLE(fieldUserRolesGV)) {
       SETSTATUSFILTER(['pending']);
+    } else if (isIntermediateUser()){
+      SETSTATUSFILTER(['pending', 'verified', 'submitted', 'deleted']);
+      if (isRejected()){
+        SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);
+      }
     }
     changeValues();
     //viewConfig();
@@ -1298,6 +1309,7 @@ ON('change','sample', callback);
 ON('change','date_measured', callback);
 ON('change','target', callback);
 ON('change','leaf_larger_than_port', callback);
+ON('change','spectrum_number', callback);
 ON('change','spectroradiometer_id', callback);
 ON('change','sphere_configuration_svc_large_leaves', callback);
 ON('change','sphere_configuration_svc_small_leaves', callback);

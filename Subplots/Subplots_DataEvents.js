@@ -265,8 +265,14 @@ function gpsAccessible(){
 /*
  * STATUS and ACCESS TO DATA
  */
+var fieldUserInterRolesGV = ['Graduate Student']; // include more roles if needed
+function isIntermediateUser(){
+  return ISROLE(fieldUserInterRolesGV);
+}
+
+
 var projectNameGV    = "";
-var fieldUserRolesGV = ['Standard User','Graduate Student']; // include more roles if needed
+var fieldUserRolesGV = ['Standard User']; // include more roles if needed
 var usernameGV       = USERFULLNAME();
 var readOnlyStatusesGV = ['deleted', 'verified', 'submitted', 'approved', 'published'];
 
@@ -682,7 +688,13 @@ function callback(event) {
     projectNameGV = PROJECTNAME();
     if (ISROLE(fieldUserRolesGV)) {
       SETSTATUSFILTER(['pending']);
+    } else if (isIntermediateUser()){
+      SETSTATUSFILTER(['pending', 'verified', 'submitted', 'deleted']);
+      if (isRejected()){
+        SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);
+      }
     }
+
     changeValues();
   }
   

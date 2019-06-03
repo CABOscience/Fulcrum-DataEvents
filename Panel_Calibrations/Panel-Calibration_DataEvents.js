@@ -171,11 +171,17 @@ function getNumOfSizeFor(repeatableVariable,dataname) {
 /*
  * STATUS and ACCESS TO DATA
  */
+var fieldUserInterRolesGV = ['Graduate Student']; // include more roles if needed
+function isIntermediateUser(){
+  return ISROLE(fieldUserInterRolesGV);
+}
+
+
 var storageGV        = STORAGE();
-var protLabelGV		 = "";
-var protValueGV		 = "";
+var protLabelGV      = "";
+var protValueGV      = "";
 var projectNameGV    = "";
-var fieldUserRolesGV = ['Standard User','Graduate Student']; // include more roles if needed
+var fieldUserRolesGV = ['Standard User']; // include more roles if needed
 var usernameGV       = USERFULLNAME();
 var readOnlyStatusesGV = ['deleted', 'verified', 'submitted', 'approved', 'published'];
 var today = new Date();
@@ -229,7 +235,7 @@ function changeValues(){
     SETREADONLY(dataName, null);
   });
   loadDataQualityControl();
-  setConfig4LocationDraft(true);
+  //setConfig4LocationDraft(true);
   //gpsAccessible(); // NO GPS NEEDED HERE
 }
 
@@ -238,7 +244,7 @@ function readOnlyValues(){
     SETREADONLY(dataName, true);
   });
   loadDataQualityControl();
-  setConfig4LocationDraft(false);
+  //setConfig4LocationDraft(false);
   //gpsNotAccessible(); // NO GPS NEEDED HERE
 }
 
@@ -430,25 +436,37 @@ function getSiteIdSaved(){
   return storageGV.getItem('site_id_saved');
 }
 
+function removeColon(timest){
+  return SUBSTITUTE(timest, ':', '-');
+}
+
 /*
  * PARENT PATH
  */
-function setParentPath(){
-  if (EXISTS(PROJECTNAME())){
-    SETVALUE('parent_directory',CONCATENATE(PROJECTNAME(), '/spectra'));
+function fillParentPath(){
+  if (!ISBLANK($target_panel_id)){
+    SETVALUE('parent_directory','PANEL-CALIBRATIONS/'+$target_panel_id+'/');
   } else {
     SETREADONLY('parent_directory', true);
-    SETVALUE('parent_directory','Select project first.');
+    SETVALUE('parent_directory','Select target panel first.');
   }
 }
+
+function setParentPath(){
+  fillParentPath();
+  stopInterval(SETINTERVAL(fillParentPath, 250),500);
+}
+
+
 
 /*
  * WORKING FOLDER
  */
 function fillWorkingFolder(){
   var date = getDateYYYYMMDDMesure();
-  if (EXISTS($site_id) && date!='' && EXISTS($serial_number)) {
-    SETVALUE('working_folder',''+date+'-'+$site_id+'-'+$serial_number);
+  var timet = removeColon($time_measured);
+  if (EXISTS($target_panel_id) && date!='' && EXISTS($serial_number) && timet!='') {
+    SETVALUE('working_folder',''+date+'_'+timet+'/');
   } else {
     SETVALUE('working_folder','');
   }
@@ -492,27 +510,6 @@ function getBaseName(){
 /*
  * FOLDERS AND FILES
  */
-function setFoldersAndFilesAtStart(){
-  if (!isSameSavedAndCurrent()){
-    // Clean all values then no need to
-    SETVALUE('site_id','');
-    SETVALUE('base_file_name','');
-    SETVALUE('working_folder','');
-    SETVALUE('computer','');
-    SETVALUE('spectroradiometer_id',null);
-    SETVALUE('instrumentation_id',null);
-    SETVALUE('panel_id',null);
-    SETVALUE('computer_type','');
-    SETVALUE('instrumentation_type','');
-    SETVALUE('manufacturer_short_name','');
-    SETVALUE('serial_number','');
-    SETVALUE('date_measured',Date());
-    setFileNumber(0);
-  } else {
-    setFoldersAndFiles();
-  }
-}
-
 function setFoldersAndFiles(){
   setParentPath();
   setWorkingFolder();
@@ -525,6 +522,10 @@ function setFoldersAndFiles(){
  */
 function setFileNumber(v){
   storageGV.setItem('file_number',''+v);
+}
+
+function setFileNumbers(v){
+  SETVALUE('file_numbers',v);
 }
 
 function getFileNumber(){
@@ -567,6 +568,14 @@ function fillFileName(){
 function setFileName(){
   fillFileName();
   stopInterval(SETINTERVAL(fillFileName, 250),500);
+}
+
+function increaseFileNumberByScan(){
+  setFileNumbers(Number(getFileNumber())+$number_of_scans);
+}
+
+function increaseFileNumberBy1(){
+  setFileNumbers(Number(getFileNumber())+1);
 }
 
 function increaseFileNumber(){
@@ -646,7 +655,7 @@ function isSameSavedAndCurrent() {
  * 'properties_measured', 'leaf_sides_measured', 'leaf_larger_than_port', 'protocol', 'computer', 'spectroradiometer_id', 'instrumentation_id', 'panel_id', 'date_measured', 'measured_by', 'spectroradiometer_start_time', 'sample'
  */
 function makeGeneralOptionsReadOnly(b) {
-  var t = ['properties_measured', 'leaf_sides_measured', 'leaf_larger_than_port', 'protocol', 'computer', 'spectroradiometer_id', 'instrumentation_id', 'panel_id', 'date_measured', 'measured_by', 'spectroradiometer_start_time'];
+  var t = ['properties_measured', 'protocol', 'computer', 'spectroradiometer_id', 'instrumentation_id', 'panel_id', 'date_measured', 'measured_by', 'spectroradiometer_start_time'];
   t.forEach(function(element) {
     SETREADONLY(element, b);
   });
@@ -672,57 +681,57 @@ function checkGeneralOptionsReadOnly(){
 function preselectValuesRegardingNumOfMeasurements(){
   var num = getNumOfMeasurements();
   var scs = '';
-  var n = 0
-  if (CONTAINS(protLabelGV,'SVC Large Leaves')){
-    if (VALUE('properties_measured') == 'both') {
-      if (num<6){
-        scs = preselectValuesReflectanceSVCLL(num);
-      } else {
-        # Create an alert
-      }
-    setLeafProtocolOptionsSVCLL(scs);
-  }
+  scs = preselectValuesReflectance(num);
+  setTargetProtocolOptions(scs);
 }
 
-function preselectValuesReflectanceSVCLL(num){
+//function preselectValuesReflectanceSVCLL(num)
+function preselectValuesReflectance(num){
   var scs = '';
-  var tab = ['A: Reflectance','B: Reflectance','C: Reflectance']
+  var tab = ['A: Reflectance','B: Reflectance','C: Reflectance'];
+  ALERT('num >'+num)
+  if (num == 0){
+    num_file = $number_of_scans;
+  } else{
+    num_file = $number_of_scans*(num-1)+1;
+  }
+  ALERT('num_file >'+num_file)
+  setFileNumbers(num_file);
   if (num<3){
-    SETVALUE('sphere_configuration_svc_large_leaves',tab[num]);
+    SETVALUE('sphere_configuration',tab[num]);
     scs = tab[num];
-    if (num!=1){
-      SETVALUE('leaf_number',1);
+    if (num==1){
+      setFileNumbers($number_of_scans+1);
     }
-  } else if (num<8) {
-    SETVALUE('sphere_configuration_svc_large_leaves',tab[2]);
-    scs = tab[2];
-    SETVALUE('leaf_number',num-1);
-  } else if (num<9){
-    SETVALUE('sphere_configuration_svc_large_leaves',tab[0]);
+  } else if (num<12 && num%2==1) {
+    SETVALUE('sphere_configuration',tab[0]);
     scs = tab[0];
-    SETVALUE('leaf_number',1);
+  } else if (num<12 && num%2==0) {
+    SETVALUE('sphere_configuration',tab[2]);
+    scs = tab[2];
   }
   return scs;
 }
 
-function setLeafProtocolOptionsSVCLL(scs){
+//function setLeafProtocolOptionsSVCLL(scs){
+function setTargetProtocolOptions(scs){
   if (CONTAINS(scs,'A:')) {
-    SETVALUE('primary_light_port_svc', 'lamp');
-    SETVALUE('transmission_port_svc', 'target + light trap');
-    SETVALUE('reflectance_port_svc', 'reference');
+    SETVALUE('primary_light_port', 'lamp');
+    SETVALUE('transmission_port', 'target + light trap');
+    SETVALUE('reflectance_port', 'reference + light trap');
   }
   if (CONTAINS(scs,'B:')) {
-    SETVALUE('primary_light_port_svc', 'lamp');
-    SETVALUE('transmission_port_svc', 'reference + light trap');
-    SETVALUE('reflectance_port_svc', 'light trap');
+    SETVALUE('primary_light_port', 'lamp');
+    SETVALUE('transmission_port', 'reference + light trap');
+    SETVALUE('reflectance_port', 'light trap');
   } else {
-    SETVALUE('target_type', 'leaf');
+    SETVALUE('target_type', 'target panel');
     SETREADONLY('target_type', true);
   }
   if (CONTAINS(scs,'C:')) {
-    SETVALUE('primary_light_port_svc', 'lamp');
-    SETVALUE('transmission_port_svc', 'reference + light trap');
-    SETVALUE('reflectance_port_svc', 'target + light trap');
+    SETVALUE('primary_light_port', 'lamp');
+    SETVALUE('transmission_port', 'reference + light trap');
+    SETVALUE('reflectance_port', 'target + light trap');
   }
 }
 
@@ -741,11 +750,17 @@ function callback(event) {
     projectNameGV = PROJECTNAME();
     if (ISROLE(fieldUserRolesGV)) {
       SETSTATUSFILTER(['pending']);
+    } else if (isIntermediateUser()){
+      SETSTATUSFILTER(['pending', 'verified', 'submitted', 'deleted']);
+      if (isRejected()){
+        SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);
+      }
     }
+
     changeValues();
     //viewConfig();
-    setProtocol();
-    getElementProtocols();
+    //setProtocol();
+    //getElementProtocols();
     checkGeneralOptionsReadOnly();
   }
   
@@ -755,7 +770,7 @@ function callback(event) {
   if (event.name === 'new-record') {
     SETVALUE('measured_by', usernameGV);
     loadDataQualityControl();
-    setFoldersAndFilesAtStart();
+    setFileNumber(0);
   }
 
   /*****************************
@@ -801,16 +816,18 @@ function callback(event) {
             VALIDATE RECORD
   ******************************/
   if (event.name === 'validate-record') {
+    /*
     if (!PROJECTNAME()) {
       INVALID('Select a project before saving.');
     }
+    */
     if (notSameMeasurementsNumber() && isReadOnly() && STATUS()!='deleted'){
-      INVALID('You can not change the number of leaves in readonly mode.');
+      INVALID('You can not change the number of panels in readonly mode.');
     }
     if (!isReadOnly()){
       setNumOfMeasurements();
     }
-    setSiteIdSaved();
+    //setSiteIdSaved();
     setCurrentDaySaved();
     setDateSaved();
     if ($manufacturer_short_name != $manufacturer_short_name_sphere) {
@@ -890,7 +907,6 @@ function callback(event) {
       ALERT('The project cannot be changed under the current status.');
       SETPROJECT(projectNameGV);
     }
-    setParentPath();
   }
 
   /*****************************
@@ -903,35 +919,24 @@ function callback(event) {
             CHANGE
   ******************************/
   if (event.name === 'change'){
-    if (event.field === 'filter_site') {
+    if (event.field === 'target_panel') {
       //  clear previous site ID values if site record link unselected
-      if (ISBLANK($filter_site)) {
-        SETVALUE('filter_site_id', null);
+      if (ISBLANK($target_panel)) {
+        SETVALUE('target_panel_id', null);
       }
-      SETVALUE('sample','');
-      SETVALUE('site_id','');
-      SETVALUE('sample_id','');
-      SETVALUE('scientific_name','');
-    }
-    
-    if (event.field === 'sample') {
-      //  clear filter_site values once sample is selected
-      if (!ISBLANK($sample)) {
-        SETVALUE('filter_site_id', '');
-        SETVALUE('filter_site', '');
-        setWorkingFolder();
-      } else {
-        SETVALUE('filter_site_id', '');
-        SETVALUE('filter_site', '');
-        SETVALUE('site_id','');
-        SETVALUE('sample_id','');
-        SETVALUE('scientific_name','');
-      }
-    }
-    
-    if (event.field === 'date_measured') {
-      /*setFoldersAndFilesAtStart();*/
       setFoldersAndFiles();
+    }
+    
+    if (event.field === 'reference_panel') {
+      //  clear filter_site values once sample is selected
+      if (ISBLANK($reference_panel)) {
+        SETVALUE('reference_panel_id', '');
+      }
+    }
+    
+    if (event.field === 'date_measured' || event.field === 'time_measured') {
+      setFoldersAndFiles();
+      ALERT($time_measured);
     }
     
     if (event.field === 'spectroradiometer_id') {
@@ -941,67 +946,21 @@ function callback(event) {
       setFoldersAndFiles();
     }
     
-    if (event.field === 'leaf_larger_than_port') {
-      setProtocol();
-    }
-    
-    if (event.field === 'protocol') {
-      if (ISBLANK($protocol)){
-        setProtocol();
-      } else {
-        SETVALUE('protocol_url', CHOICEVALUE($protocol));
-      }
-    }
-    
-    if (event.field === 'leaf_sides_measured') {
-      var lsmv = CHOICEVALUES($leaf_sides_measured);
-      if (CONTAINS(lsmv,'Not bifacial')){
-        SETVALUE('leaf_sides_measured', ['Not bifacial']);
-      } else {
-        if (ISBLANK($leaf_sides_measured)){
-          SETVALUE('leaf_sides_measured', ['Adaxial (upper)']);
-        }
-      }
-      if (lsmv.length>1){
-        SETVALUE('leaf_sides_measured', ['Adaxial (upper)']);
-        ALERT('Sorry, Leaf Side Measured is a single choice.');
-      }
-    }
-    
     //
     // REPEATABLE
     //
-    if (event.field === 'target') {
-      SETVALUE('leaf_side', null);
-    }
     if (event.field === 'spectrum_number') {
       setSpectrumNumber();
     }
     
     // SVC sphere configuration
-    if (event.field == 'sphere_configuration_svc_small_leaves') {
-      if (ISBLANK($sphere_configuration_svc_small_leaves)) {
-        SETVALUE('primary_light_port_svc', null);
-        SETVALUE('transmission_port_svc', null);
-        SETVALUE('reflectance_port_svc', null);
+    if (event.field == 'sphere_configuration') {
+      if (ISBLANK($sphere_configuration)) {
+        SETVALUE('primary_light_port', null);
+        SETVALUE('transmission_port', null);
+        SETVALUE('reflectance_port', null);
       }
-      if (CONTAINS(protLabelGV,'SVC Small Leaves')){
-        var scs = CHOICEVALUE($sphere_configuration_svc_small_leaves);
-        setLeafProtocolOptionsSVCSL(scs);
-      }
-    }
-    
-    if (event.field == 'sphere_configuration_svc_large_leaves') {
-      //  clear previous site ID values if site record link unselected
-      if (ISBLANK($sphere_configuration_svc_large_leaves)) {
-        SETVALUE('primary_light_port_svc', null);
-        SETVALUE('transmission_port_svc', null);
-        SETVALUE('reflectance_port_svc', null);
-      }
-      if (CONTAINS(protLabelGV,'SVC Large Leaves')){
-        var scs = CHOICEVALUE($sphere_configuration_svc_large_leaves);
-        setLeafProtocolOptionsSVCLL(scs);
-      }
+      setTargetProtocolOptions(scs);
     }
   }
 
@@ -1021,48 +980,12 @@ function callback(event) {
         SETCHOICES('target_type', 'leaf');
       }
     }
-    if (VALUE('leaf_larger_than_port')=='yes'){
-      SETHIDDEN('sphere_configuration_svc_large_leaves',false);
-      SETHIDDEN('sphere_configuration_svc_small_leaves',true);
-    } else if (VALUE('leaf_larger_than_port')=='no'){
-      SETHIDDEN('sphere_configuration_svc_large_leaves',true);
-      SETHIDDEN('sphere_configuration_svc_small_leaves',false);
-    } else {
-      ALERT(VALUE('leaf_larger_than_port'));
-    }
-    // sphere_configuration_svc_large_leaves
-    if (VALUE('properties_measured') != 'both') {
-      SETCHOICEFILTER('sphere_configuration_svc_large_leaves',VALUE('properties_measured'));
-      SETCHOICEFILTER('sphere_configuration_svc_small_leaves',VALUE('properties_measured'));
-    } else {
-      SETCHOICEFILTER('sphere_configuration_svc_large_leaves',null);
-      SETCHOICEFILTER('sphere_configuration_svc_small_leaves',null);
-    }
   }
   
   if (event.name === 'new-repeatable'){
     if (event.field === 'measurements') {
       fillFileName();
       SETVALUE('spectrum_number',getFileNumber());
-      
-      var lsmv = CHOICEVALUES($leaf_sides_measured);
-      if (!CONTAINS(lsmv,'Adaxial (upper)')){
-        // means it contains the other option Abaxial (lower)
-        //leaf_side_measured is read only
-        SETREADONLY('leaf_side_measured',true);
-        //leaf_side_measured is equal to Abaxial (lower)
-        SETVALUE('leaf_side_measured', 'abaxial');
-      } else if (!CONTAINS(lsmv,'Abaxial (lower)')){
-        //  means it contains the other option Adaxial (upper)
-        //leaf_side_measured is read only
-        SETREADONLY('leaf_side_measured',true);
-        //leaf_side_measured is equal to Adaxial (upper)
-        SETVALUE('leaf_side_measured', 'adaxial');
-      } else {
-        // means it contains the two options
-        SETREADONLY('leaf_side_measured',false);
-        //leaf_side_measured is not read only
-      }
       preselectValuesRegardingNumOfMeasurements();
     }
   }
@@ -1092,18 +1015,13 @@ ON('validate-record', callback);
 ON('save-record', callback);
 ON('change-status', callback);
 ON('change-project', callback);
-ON('change','filter_site', callback);
-ON('change','sample', callback);
+ON('change','target_panel', callback);
 ON('change','date_measured', callback);
 ON('change','target', callback);
-ON('change','leaf_larger_than_port', callback);
+ON('change','spectrum_number', callback);
 ON('change','spectroradiometer_id', callback);
-ON('change','sphere_configuration_svc_large_leaves', callback);
-ON('change','sphere_configuration_svc_small_leaves', callback);
-ON('change','protocol', callback);
-ON('change','leaf_sides_measured', callback);
+ON('change','time_measured',callback);
 ON('new-repeatable', 'measurements', callback);
 ON('load-repeatable', 'measurements', callback);
 ON('validate-repeatable', 'measurements', callback);
 ON('save-repeatable', 'measurements', callback);
-ON('change','spectrum_number', callback);

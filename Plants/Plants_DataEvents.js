@@ -286,7 +286,8 @@ function gpsAccessible(){
  */
 var storageGV        = STORAGE();
 var projectNameGV    = "";
-var fieldUserRolesGV = ['Standard User','Graduate Student']; // include more roles if needed
+var fieldUserRolesGV = ['Standard User']; // include more roles if needed
+var fieldUserInterRolesGV = ['Graduate Student']; // include more roles if needed
 var usernameGV       = USERFULLNAME();
 var readOnlyStatusesGV = ['deleted', 'verified', 'submitted', 'approved', 'published'];
 
@@ -300,6 +301,10 @@ function isVerified(){
 
 function isStandardUser(){
   return ISROLE(fieldUserRolesGV);
+}
+
+function isIntermediateUser(){
+  return ISROLE(fieldUserInterRolesGV);
 }
 
 function isReadOnly(){
@@ -663,6 +668,11 @@ function callback(event) {
     projectNameGV = PROJECTNAME();
     if (ISROLE(fieldUserRolesGV)) {
       SETSTATUSFILTER(['pending']);
+    } else if (isIntermediateUser()){
+      SETSTATUSFILTER(['pending', 'verified', 'submitted', 'deleted']);
+      if (isRejected()){
+        SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);
+      }
     }
     changeValues();
   }
@@ -708,6 +718,16 @@ function callback(event) {
           SETREADONLY('@status', false);
         }
       }
+      /*
+      if (isStandardUser() && isIntermediateUser()){
+        // lock the record status
+        SETREADONLY('@status', true);
+        //... except for verified by the standard user who verified the record
+        if ((usernameGV == $verified_by) && (STATUS() == 'verified')) {
+          SETREADONLY('@status', false);
+        }
+      }
+      */
     } else {
       if (!isDraft() && isStandardUser()){
         SETSTATUSFILTER(['pending', 'verified', 'deleted']);

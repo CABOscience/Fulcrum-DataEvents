@@ -49,8 +49,13 @@ function setConfig4LocationDraft(b){
 /*
  * STATUS and ACCESS TO DATA
  */
+var fieldUserInterRolesGV = ['Graduate Student']; // include more roles if needed
+function isIntermediateUser(){
+  return ISROLE(fieldUserInterRolesGV);
+}
+
 var projectNameGV    = "";
-var fieldUserRolesGV = ['Standard User','Graduate Student']; // include more roles if needed
+var fieldUserRolesGV = ['Standard User']; // include more roles if needed
 var usernameGV       = USERFULLNAME();
 var readOnlyStatusesGV = ['deleted', 'verified', 'submitted', 'approved', 'published'];
 
@@ -226,8 +231,8 @@ function setRehydratedLeafSampleAll(){
 function rehydratedLeafAreaVisibility() {
   if (ISBLANK($total_rehydrated_leaf_mass_g)){
     SETHIDDEN('rehydrated_leaf_area',true);
-    if (ISBLANK($scanned_by)) SETVALUE('scanned_by',usernameGV);
-    if (ISBLANK($date_scanned)) SETVALUE('date_scanned',getCurrentDate());
+    //if (ISBLANK($scanned_by)) SETVALUE('scanned_by',usernameGV);
+    //if (ISBLANK($date_scanned)) SETVALUE('date_scanned',getCurrentDate());
     setReadOnlyFresh(true);
   } else {
     SETHIDDEN('rehydrated_leaf_area',false); 
@@ -410,6 +415,20 @@ function setFoldersAndFiles(){
   setDataFileName();
 }
 
+function set_user_scan(){
+  if (ISBLANK($scanned_by)) SETVALUE('scanned_by',usernameGV);
+  if (ISBLANK($date_scanned)) SETVALUE('date_scanned',getCurrentDate());
+  if (ISBLANK($time_scanned)) SETVALUE('time_scanned',getCurrentHoursMinutes());
+}
+
+function set_user_scan_interval(){
+  set_user_scan();
+  stopIntervalWithT(SETINTERVAL(set_user_scan, 500),1000);
+}
+
+
+
+
 /*
  DRAFT test
 Record link:    site sample
@@ -458,13 +477,16 @@ function callback(event) {
     projectNameGV = PROJECTNAME();
     if (ISROLE(fieldUserRolesGV)) {
       SETSTATUSFILTER(['pending']);
+    } else if (isIntermediateUser()){
+      SETSTATUSFILTER(['pending', 'verified', 'submitted', 'deleted']);
+      if (isRejected()){
+        SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);
+      }
     }
     changeValues();
     setRehydratedLeafSampleAll();
     rehydratedLeafAreaVisibility();
     setFoldersAndFiles();
-    if (ISBLANK($scanned_by)) SETVALUE('scanned_by',usernameGV);
-    if (ISBLANK($date_scanned)) SETVALUE('date_scanned',getCurrentDate());
     if (!ISBLANK($sample2)){
       SETHIDDEN('sample', true);
       SETHIDDEN('sample2', false);
@@ -719,6 +741,9 @@ function callback(event) {
         SETVALUE('time_weighed_rehy',getCurrentHoursMinutes());
       }
     }
+    if (event.field === 'total_rehydrated_leaf_area_cm2') {
+        set_user_scan();
+    }
   }
 
   /*****************************
@@ -744,6 +769,8 @@ function callback(event) {
   if (event.name === 'validate-repeatable'){
   }
 
+  if (event.name === 'save-repeatable'){
+  }
 }
 
 /********** FUNCTIONS **********/
@@ -757,6 +784,7 @@ ON('change','sample2', callback);
 ON('change','leaf_status', callback);
 ON('change','date_scanned', callback);
 ON('change','total_rehydrated_leaf_mass_g', callback);
+ON('change','total_rehydrated_leaf_area_cm2', callback);
 ON('validate-record', callback);
 ON('save-record', callback);
 ON('change-status', callback);

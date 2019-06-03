@@ -141,8 +141,14 @@ function updateTaxonLists() {
 /*
  * STATUS and ACCESS TO DATA
  */
+var fieldUserInterRolesGV = ['Graduate Student']; // include more roles if needed
+function isIntermediateUser(){
+  return ISROLE(fieldUserInterRolesGV);
+}
+
+
 var projectNameGV    = "";
-var fieldUserRolesGV = ['Standard User','Graduate Student']; // include more roles if needed
+var fieldUserRolesGV = ['Standard User']; // include more roles if needed
 var usernameGV       = USERFULLNAME();
 var readOnlyStatusesGV = ['deleted', 'verified', 'submitted', 'approved', 'published'];
 
@@ -321,6 +327,23 @@ function setGeometry(){
   stopInterval(SETINTERVAL(fillGeometry, 500),1000);
 }
 
+/*
+ * Set location from (sub)plot
+ */
+
+function setLocation(){
+  var lat = VALUE('plot_latitude');
+  var lon = VALUE('plot_longitude');
+  if (EXISTS(lon) && EXISTS(lat)) {
+    SETLOCATION(lat,lon);
+  }
+}
+
+function setLocationInterval(){
+  setLocation();
+  stopInterval(SETINTERVAL(setLocation, 500),1000);
+}
+
 
 
 
@@ -337,6 +360,11 @@ function callback(event) {
     projectNameGV = PROJECTNAME();
     if (ISROLE(fieldUserRolesGV)) {
       SETSTATUSFILTER(['pending']);
+    } else if (isIntermediateUser()){
+      SETSTATUSFILTER(['pending', 'verified', 'submitted', 'deleted']);
+      if (isRejected()){
+        SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);
+      }
     }
     loadDataQualityControl();
     changeValues();
@@ -375,12 +403,12 @@ function callback(event) {
         if (isRejected()){
           SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);
         }
-        // lock the record status
-        SETREADONLY('@status', true);
-        //... except for verified by the standard user who verified the record
-        if ((usernameGV == $verified_by) && (STATUS() == 'verified')) {
-          SETREADONLY('@status', false);
-        }
+      }
+      // lock the record status
+      SETREADONLY('@status', true);
+      //... except for verified by the standard user who verified the record
+      if ((usernameGV == $verified_by) && (STATUS() == 'verified')) {
+        SETREADONLY('@status', false);
       }
     } else {
       //if (!isDraft() && isStandardUser()){
@@ -458,7 +486,7 @@ function callback(event) {
     } else if (status == 'submitted') {
       SETVALUE('submitted_by', usernameGV);
       SETVALUE('date_submitted', today);
-      ALERT('This will submit the record to the data manager for approval. Submitted records can no longer be edited by standard users.');
+      ALERT('This will submit the record to the data manager for approval. Submitted records can no longer be edited by users.');
     } else if (status == 'approved') {
       SETVALUE('approved_by', usernameGV);
       SETVALUE('date_approved', today);
@@ -486,7 +514,7 @@ function callback(event) {
   if (event.name === 'change-geometry') {
     // On main record object
     if (!EXISTS(event.field)) {
-      setGeometry();
+      setLocationInterval();
     }
   }
 
@@ -506,7 +534,7 @@ function callback(event) {
         SETVALUE('plot_id', null);
         SETVALUE('site_id', null);
       } else {
-        setGeometry();
+        setLocationInterval();
       }
     }
   }

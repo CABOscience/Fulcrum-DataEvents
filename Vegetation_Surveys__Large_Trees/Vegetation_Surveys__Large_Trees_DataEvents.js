@@ -1,3 +1,5 @@
+/* SAVE VERSIONS */
+
 /*****************************************************************
 
         FUNCTIONS DATA EVENTS Vegetation Survey: Large Trees
@@ -11,6 +13,16 @@ function viewConfig(){
   SHOWERRORS(true);
   ALERT(">"+INSPECT(CONFIG()));
 }
+
+/*
+ * INTERVAL
+ */
+function stopInterval(interval,time){
+  SETTIMEOUT(function() {
+    CLEARINTERVAL(interval);
+  }, time);
+}
+
 
 /*
  * CONFIGURATION
@@ -348,24 +360,30 @@ function calculate_gps_position(){
 
 function updateTreeAccordingPosition(){
   if (!isReadOnly()){
-    if (VALUE('tree_positioning_method')=='GPS'){
+    tpm = VALUE('tree_positioning_method')
+    if (tpm=='GPS'){
       gpsAccessible();
       SETVALUE('x_position_m',null);
       SETVALUE('y_position_m',null);
       SETVALUE('distance_m',null);
       SETVALUE('azimuth_degrees',null);
-    } else if (VALUE('tree_positioning_method')=='dist-angle'){
+    } else if (tpm=='dist-angle'){
       gpsNotAccessible();
       calculate_gps_position();
       SETVALUE('x_position_m',null);
       SETVALUE('y_position_m',null);
-    } else if (VALUE('tree_positioning_method')=='XY'){
+    } else if (tpm=='XY'){
       gpsNotAccessible();
       calculate_gps_position();
       SETVALUE('distance_m',null);
       SETVALUE('azimuth_degrees',null);
     }
   }
+}
+
+function updateTreeAccordingPositionInterval() {
+  updateTreeAccordingPosition();
+  stopInterval(SETINTERVAL(updateTreeAccordingPosition, 500),1000);
 }
 
 /*
@@ -411,10 +429,33 @@ function updateScientificNames() {
 
 
 /*
+ * Set location from (sub)plot
+ */
+
+function setLocation(){
+  var lat = VALUE('plot_latitude');
+  var lon = VALUE('plot_longitude');
+  if (EXISTS(lon) && EXISTS(lat)) {
+    SETLOCATION(lat,lon);
+  }
+}
+
+function setLocationInterval(){
+  setLocation();
+  stopInterval(SETINTERVAL(setLocation, 500),1000);
+}
+
+/*
  * STATUS and ACCESS TO DATA
  */
+var fieldUserInterRolesGV = ['Graduate Student']; // include more roles if needed
+function isIntermediateUser(){
+  return ISROLE(fieldUserInterRolesGV);
+}
+
+
 var projectNameGV    = "";
-var fieldUserRolesGV = ['Standard User','Graduate Student']; // include more roles if needed
+var fieldUserRolesGV = ['Standard User']; // include more roles if needed
 var usernameGV       = USERFULLNAME();
 var readOnlyStatusesGV = ['deleted', 'verified', 'submitted', 'approved', 'published'];
 
@@ -614,7 +655,13 @@ function callback(event) {
     projectNameGV = PROJECTNAME();
     if (ISROLE(fieldUserRolesGV)) {
       SETSTATUSFILTER(['pending']);
+    } else if (isIntermediateUser()){
+      SETSTATUSFILTER(['pending', 'verified', 'submitted', 'deleted']);
+      if (isRejected()){
+        SETSTATUSFILTER(['rejected', 'verified', 'submitted', 'deleted']);
+      }
     }
+
     /* UPDATE scientific_names */
     SETREADONLY('update_saved_trees',false);
     SETREADONLY('update_scientific_names',true);
@@ -794,11 +841,14 @@ function callback(event) {
     if (event.field === 'plot'){
       SETVALUE('trees_measured_in_subplot','no');
       SETVALUE('subplot',null);
+      setLocationInterval();
     }
     if (event.field === 'subplot'){
       if (!EXISTS($subplot)){
         SETVALUE('plot_longitude',VALUE('saved_plot_longitude'));
         SETVALUE('plot_latitude',VALUE('saved_plot_latitude'));
+      } else {
+        setLocationInterval();
       }
     }
     if (event.field === 'x_position_m' || event.field === 'y_position_m' || event.field === 'distance_m' || event.field === 'azimuth_degrees'){
